@@ -1,0 +1,7 @@
+*.generated.tf
+node_modules/
+.terraform
+env.ps1
+secrets.txt
+.idea/
+.terragrunt-cache/
