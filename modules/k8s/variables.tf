@@ -1,3 +1,5 @@
+variable "k8s_version" {}
+
 variable "cluster_name" {
   type = string
   description = "Name of the VPC"
@@ -5,11 +7,11 @@ variable "cluster_name" {
 
 variable "vpc_region" {
   type = string
-  description = "DO Region of the VPC"
+  description = "DigitalOcean Region of the VPC"
   default = "sfo2"
 }
 
 variable "vpc_uuid" {
   type = string
-  description = "DO VPC UUID"
+  description = "DigitalOcean VPC UUID"
 }

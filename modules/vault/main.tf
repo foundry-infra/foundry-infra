@@ -1,30 +1,30 @@
-module "cluster" {
-  source = "github.com:xmclark/foundry-infra.git//modules/k8s"
-  cluster_name = var.k8s_cluster_name
-  vpc_uuid = var.vpc_uuid
+terraform {
+  required_providers {
+    kubernetes = {
+      source = "hashicorp/kubernetes"
+    }
+    helm = {
+      source = "hashicorp/helm"
+    }
+    digitalocean = {
+      source = "digitalocean/digitalocean"
+      version = "2.2.0"
+    }
+  }
+}
+
+provider "kubernetes" {
+  load_config_file = false
+  host             = var.k8s_endpoint
+  token            = var.k8s_token
+  cluster_ca_certificate = var.k8s_cluster_ca_certificate_b64d
 }
 
 provider "helm" {
   kubernetes {
-    host     = "https://104.196.242.174"
-    username = ""
-    password = ""
-
-    client_certificate     = file("~/.kube/client-cert.pem")
-    client_key             = file("~/.kube/client-key.pem")
-    cluster_ca_certificate = file("~/.kube/cluster-ca-cert.pem")
+    load_config_file = false
+    host             = var.k8s_endpoint
+    token            = var.k8s_token
+    cluster_ca_certificate = var.k8s_cluster_ca_certificate_b64d
   }
-}
-
-resource "kubernetes_namespace" "ns" {
-  metadata {
-    name = "vault"
-  }
-}
-
-resource "helm_release" "release" {
-  name       = "vault"
-  repository = "https://helm.releases.hashicorp.com"
-  chart      = "vault"
-  version    = "0.8.0"
 }
