@@ -21,3 +21,8 @@ variable "cluster_name" {
 variable "vault_domain" {}
 
 variable "k8s_version" {}
+
+variable "digitalocean_api_token" {}
+
+variable "vault_issuer_name" {}
+variable "vault_subdomain_name" {}

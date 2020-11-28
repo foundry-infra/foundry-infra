@@ -1,0 +1,12 @@
+---
+ingress:
+  enabled: true
+  certManager: true
+  hostname: ${hostname}
+  tls: true
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: ${issuer_name}
+service:
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}

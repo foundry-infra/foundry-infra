@@ -1,0 +1,11 @@
+apiVersion: gemini.fairwinds.com/v1beta1
+kind: SnapshotGroup
+metadata:
+  name: vault-data
+  namespace: ${namespace}
+spec:
+  persistentVolumeClaim:
+    claimName: "${vault_claim_name}"
+  schedule:
+    - every: 10 minutes
+      keep: 3

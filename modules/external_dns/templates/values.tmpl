@@ -1,0 +1,12 @@
+---
+rbac:
+  create: true
+
+provider: digitalocean
+
+digitalocean:
+  apiToken: ${digitalocean_api_token}
+
+interval: "1m"
+
+policy: sync # or upsert-only

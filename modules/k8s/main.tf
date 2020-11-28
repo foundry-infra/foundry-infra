@@ -18,3 +18,7 @@ resource "digitalocean_kubernetes_cluster" "main" {
     node_count = 3
   }
 }
+
+resource "digitalocean_floating_ip" "ingress_ip" {
+  region     = var.vpc_region
+}

@@ -1,11 +1,10 @@
-variable "k8s_endpoint" {
-}
+variable "k8s_namespace" {}
 
-variable "k8s_token" {
-}
+variable "k8s_endpoint" {}
 
-variable "k8s_cluster_ca_certificate_b64d" {
-}
+variable "k8s_token" {}
+
+variable "k8s_cluster_ca_certificate_b64d" {}
 
 variable "enable_vault_ui" {
   description = "controls whether to enable the UI for Vault or not"
@@ -26,12 +25,6 @@ variable "primary_hostname" {
   type        = string
   description = "hostname for self-signed certificate"
   default     = "vault-primary"
-}
-
-variable "secondary_hostname" {
-  type        = string
-  description = "hostname for self-signed certificate"
-  default     = "vault-secondary"
 }
 
 variable "domain" {
@@ -61,12 +54,6 @@ variable "vault_enable_audit" {
   default     = true
 }
 
-variable "deploy_secondary" {
-  type        = bool
-  description = "controls whether or not to deploy a second vault in a separate namespace"
-  default     = false
-}
-
 variable "agent_init_first" {
   default = "true"
 }
@@ -74,3 +61,7 @@ variable "agent_init_first" {
 variable "dev_mode" {
   default = "false"
 }
+
+variable "workaround_subdomain_name" {}
+
+variable "tls_secret_name" {}
