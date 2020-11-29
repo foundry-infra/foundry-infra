@@ -1,10 +1,16 @@
 dev:
   enabled: ${dev_mode}
 
+global:
+  enable: true
+  tlsDisable: false
+
+
 injector:
   annotations:
     "vault.hashicorp.com/agent-init-first": "${agent_init_first}"
-
+  extraEnvironmentVars:
+    AGENT_INJECT_VAULT_ADDR: "https://${vault_subdomain_name}"
 server:
   image:
     repository: ${vault_image_repository}
@@ -13,6 +19,33 @@ server:
     enabled: true
   auditStorage:
     enabled: ${vault_enable_audit}
+  extraVolumes:
+    - type: secret
+      name: ${tls_secret_name}
+  extraEnvironmentVars:
+    VAULT_ADDR: https://127.0.0.1:8200
+    VAULT_SKIP_VERIFY: true
+
+  ingress:
+    enabled: true
+    annotations:
+      cert-manager.io/cluster-issuer: ${issuer_name}
+      kubernetes.io/tls-acme: 'true'
+      kubernetes.io/ingress.allow-http: "false"
+      kubernetes.io/ingress.class: "nginx"
+      nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
+      nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+      nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    hosts:
+      - host: ${vault_subdomain_name}
+        paths:
+          - /
+
+  service:
+    enabled: true
+    annotations:
+      service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}
+
   ha:
     enabled: true
     replicas: ${replicas}
@@ -20,28 +53,17 @@ server:
       enabled: true
       config: |
         ui = ${enable_vault_ui}
-
         listener "tcp" {
-          tls_disable     = ${tls_disable}
-          tls_cert_file   = "/vault/userconfig/tls/tls.crt"
-          tls_key_file    = "/vault/userconfig/tls/tls.key"
+          tls_disable     = "${tls_disable}"
+          tls_cert_file   = "/vault/userconfig/${tls_secret_name}/tls.crt"
+          tls_key_file    = "/vault/userconfig/${tls_secret_name}/tls.key"
           address         = "[::]:8200"
           cluster_address = "[::]:8201"
         }
-
         storage "raft" {
           path = "/vault/data"
         }
-
         service_registration "kubernetes" {}
-  extraVolumes:
-    - type: secret
-      name: ${tls_secret_name}
-  extraEnvironmentVars:
-    VAULT_ADDR: https://127.0.0.1:8200
-    VAULT_SKIP_VERIFY: true
+
 ui:
   enabled: ${enable_vault_ui}
-  serviceType: ${vault_service_type}
-  annotations:
-    service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}

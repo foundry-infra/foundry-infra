@@ -13,3 +13,5 @@ variable "hostname" {}
 variable "workaround_subdomain_name" {}
 
 variable "issuer_name" {}
+
+variable "pat" {}

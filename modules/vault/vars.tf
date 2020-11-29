@@ -65,3 +65,7 @@ variable "dev_mode" {
 variable "workaround_subdomain_name" {}
 
 variable "tls_secret_name" {}
+
+variable "issuer_name" {}
+
+variable "vault_subdomain_name" {}

@@ -1,0 +1,972 @@
+{
+  "version": 4,
+  "terraform_version": "0.13.4",
+  "serial": 43,
+  "lineage": "405ad1a3-8242-796e-e646-837773a009fb",
+  "outputs": {
+    "k8s_cluster_ca_certificate_b64d": {
+      "value": "-----BEGIN CERTIFICATE-----\nMIIDJzCCAg+gAwIBAgICBnUwDQYJKoZIhvcNAQELBQAwMzEVMBMGA1UEChMMRGln\naXRhbE9jZWFuMRowGAYDVQQDExFrOHNhYXMgQ2x1c3RlciBDQTAeFw0yMDExMjcw\nNTE2MjNaFw00MDExMjcwNTE2MjNaMDMxFTATBgNVBAoTDERpZ2l0YWxPY2VhbjEa\nMBgGA1UEAxMRazhzYWFzIENsdXN0ZXIgQ0EwggEiMA0GCSqGSIb3DQEBAQUAA4IB\nDwAwggEKAoIBAQDWmOwf2Gr5kYX04dnySIe7ILvrdRwcW6B6cxEbBHAVrDv4XGK6\nzbXSUkjz0PCQDJ8vrYoAtZy2NFNbjjNWv4v2JgKCj2t5TJMS7ZUZwgMG+UvB6OkW\nbaY+c3Zo6WVBFcDL4ohdtN5nSBnnUfzhm6x+JDCcfksgwR+sFv0Xf1tMSyEyJf8p\n+yt03iAGMpOXr5/YBkH73uV31mpivlQU/AnhKMx16C4u7GtW9hLS3pV2SPX/CuSL\npbXMMn1lhX7wzcgDA4nbOWWjgpWKDBdAXDqcitogiPnzngkm+PTYFtUvJijxx9xf\nrMqUjQOslDpxWcePr5y2OyPM1pOT58g95uuXAgMBAAGjRTBDMA4GA1UdDwEB/wQE\nAwIBhjASBgNVHRMBAf8ECDAGAQH/AgEAMB0GA1UdDgQWBBSQXQ0FzI46P5/gLIEC\nmjFEGm0+XDANBgkqhkiG9w0BAQsFAAOCAQEAoMMDKyAkXuCjc1O4+PK/ta7kvnvV\n8n03s7oSVe3Zi6HqhSXWiwSHVTt1MfFalLuwvfaOQnjaktOaOns6Bv8an4ymFo91\nOBJnXuGM4Ja5qXJw11Qg6fu9PUcBFzroCc7EpBVYPGHze8Z6dLQIToBfdqQq5Chp\nEr6VdYNl+rLWFuVi5a7SPqH8BxYuU0gT3cH2mfvh8D0oGgpRlk5VHMxSbRSa6pvT\nhVrhFubW+8pjeJI9JhmJsglHS073u6m+Ie1YH7LHiGMkQZV+9qbDzhP6UAlwEqVX\nY1KPkEB053YGuHVrP72z81ezfr/yQa75bFzEThsVf979ozYEelal+L936Q==\n-----END CERTIFICATE-----\n",
+      "type": "string"
+    },
+    "k8s_endpoint": {
+      "value": "https://d4bf03d2-1cde-462e-8da5-09dc04459430.k8s.ondigitalocean.com",
+      "type": "string"
+    },
+    "k8s_token": {
+      "value": "00feadd4ae5c62ba11dd753e8220d216329c6e2877fa9232c36eb63f49e48f66",
+      "type": "string"
+    },
+    "vpc_uuid": {
+      "value": "e8f4cd80-af6c-427d-95cf-46ea83c89c7f",
+      "type": "string"
+    },
+    "workaround_subdomain_name": {
+      "value": "workaround.goldengulp.com",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "digitalocean_project",
+      "name": "project",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "created_at": "2018-03-14T16:02:01Z",
+            "description": "Update your project information under Settings",
+            "environment": "",
+            "id": "f73cea38-abb1-44c2-a202-96a4f5891316",
+            "is_default": true,
+            "name": "mackenzie.a.z.c",
+            "owner_id": 3437067,
+            "owner_uuid": "4686e9f5ebf0c4f5b13f06bbbc9aed55550c01ac",
+            "purpose": "",
+            "resources": [
+              "do:dbaas:8a3a4957-53ef-4890-9da4-f3e301e2b7fa",
+              "do:domain:frost-wind-terror.group",
+              "do:domain:goldengulp.com",
+              "do:droplet:214637700",
+              "do:floatingip:138.197.234.16",
+              "do:kubernetes:64588704-08e7-4303-b81f-d1434cea190e",
+              "do:kubernetes:d4bf03d2-1cde-462e-8da5-09dc04459430",
+              "do:loadbalancer:0aed305f-e939-40d4-ba85-b663e8c36fc9",
+              "do:loadbalancer:22a0ad3a-1415-4d39-8464-aa089ae55036",
+              "do:space:fwt-group",
+              "do:space:platform-foundry",
+              "do:space:urixdor-skt",
+              "do:volume:63a78cd9-faf5-11ea-a244-0a58ac142203",
+              "do:volume:7475d087-faf5-11ea-a244-0a58ac142203",
+              "do:volume:90839ad7-faeb-11ea-884b-0a58ac14218f",
+              "do:volume:adc4918c-3070-11eb-9419-0a58ac14212a",
+              "do:volume:ae4da4f2-3070-11eb-a424-0a58ac142006",
+              "do:volume:fc7e7553-06ce-11eb-9461-0a58ac1420e9"
+            ],
+            "updated_at": "2018-07-25T18:31:48Z"
+          }
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "kubernetes_namespace",
+      "name": "platform_ns",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "platform",
+            "metadata": [
+              {
+                "annotations": {},
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "platform",
+                "resource_version": "1018",
+                "self_link": "/api/v1/namespaces/platform",
+                "uid": "53a764af-c1b9-4d94-8f9d-dc3ce69afc82"
+              }
+            ],
+            "timeouts": null
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjozMDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "module.cluster.digitalocean_floating_ip.ingress_ip",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cert_manager",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "cert_manager",
+      "provider": "module.cert_manager.provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "atomic": false,
+            "chart": "cert-manager",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "cert-manager",
+            "keyring": null,
+            "lint": false,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "v1.1.0",
+                "chart": "cert-manager",
+                "name": "cert-manager",
+                "namespace": "platform",
+                "revision": 1,
+                "values": "{\"installCRDs\":true}",
+                "version": "v1.1.0"
+              }
+            ],
+            "name": "cert-manager",
+            "namespace": "platform",
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://charts.jetstack.io",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [],
+            "set_sensitive": [],
+            "set_string": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": [
+              "---\r\ninstallCRDs: true\r\n"
+            ],
+            "verify": false,
+            "version": "v1.1.0",
+            "wait": true
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_floating_ip.ingress_ip",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cert_manager_issuers",
+      "mode": "managed",
+      "type": "kubectl_manifest",
+      "name": "prod_issuer",
+      "provider": "provider[\"registry.terraform.io/gavinbunney/kubectl\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_version": "cert-manager.io/v1alpha2",
+            "force_new": false,
+            "id": "/apis/cert-manager.io/v1alpha2/clusterissuers/letsencrypt-prod",
+            "ignore_fields": null,
+            "kind": "ClusterIssuer",
+            "live_manifest_incluster": "apiVersion=cert-manager.io/v1alpha2,kind=ClusterIssuer,metadata.name=letsencrypt-prod,spec.acme.email=mackenzie.a.z.c@gmail.com,spec.acme.privateKeySecretRef.name=letsencrypt-prod,spec.acme.server=https://acme-v02.api.letsencrypt.org/directory,spec.acme.solvers.#=1,spec.acme.solvers.0.http01.ingress.class=nginx",
+            "live_resource_version": "130641",
+            "live_uid": "f5a7c7fb-31c9-497a-8c79-d58d9305032e",
+            "name": "letsencrypt-prod",
+            "namespace": "platform",
+            "override_namespace": null,
+            "resource_version": "130638",
+            "sensitive_fields": null,
+            "timeouts": null,
+            "uid": "f5a7c7fb-31c9-497a-8c79-d58d9305032e",
+            "validate_schema": true,
+            "wait": null,
+            "wait_for_rollout": true,
+            "yaml_body": "apiVersion: cert-manager.io/v1alpha2\r\nkind: ClusterIssuer\r\nmetadata:\r\n  name: letsencrypt-prod\r\n  namespace: platform\r\nspec:\r\n  acme:\r\n    # The ACME server URL\r\n    server: https://acme-v02.api.letsencrypt.org/directory\r\n    # Email address used for ACME registration\r\n    email: mackenzie.a.z.c@gmail.com\r\n    # Name of a secret used to store the ACME account private key\r\n    privateKeySecretRef:\r\n      name: letsencrypt-prod\r\n    # Enable the HTTP-01 challenge provider\r\n    solvers:\r\n      - http01:\r\n          ingress:\r\n            class: nginx\r\n",
+            "yaml_body_parsed": "apiVersion: cert-manager.io/v1alpha2\nkind: ClusterIssuer\nmetadata:\n  name: letsencrypt-prod\n  namespace: platform\nspec:\n  acme:\n    email: mackenzie.a.z.c@gmail.com\n    privateKeySecretRef:\n      name: letsencrypt-prod\n    server: https://acme-v02.api.letsencrypt.org/directory\n    solvers:\n    - http01:\n        ingress:\n          class: nginx\n",
+            "yaml_incluster": "apiVersion=cert-manager.io/v1alpha2,kind=ClusterIssuer,metadata.name=letsencrypt-prod,spec.acme.email=mackenzie.a.z.c@gmail.com,spec.acme.privateKeySecretRef.name=letsencrypt-prod,spec.acme.server=https://acme-v02.api.letsencrypt.org/directory,spec.acme.solvers.#=1,spec.acme.solvers.0.http01.ingress.class=nginx"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cert_manager_issuers",
+      "mode": "managed",
+      "type": "kubectl_manifest",
+      "name": "staging_issuer",
+      "provider": "provider[\"registry.terraform.io/gavinbunney/kubectl\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_version": "cert-manager.io/v1alpha2",
+            "force_new": false,
+            "id": "/apis/cert-manager.io/v1alpha2/clusterissuers/letsencrypt-staging",
+            "ignore_fields": null,
+            "kind": "ClusterIssuer",
+            "live_manifest_incluster": "apiVersion=cert-manager.io/v1alpha2,kind=ClusterIssuer,metadata.name=letsencrypt-staging,spec.acme.email=mackenzie.a.z.c@gmail.com,spec.acme.privateKeySecretRef.name=letsencrypt-staging,spec.acme.server=https://acme-staging-v02.api.letsencrypt.org/directory,spec.acme.solvers.#=1,spec.acme.solvers.0.http01.ingress.class=nginx",
+            "live_resource_version": "127100",
+            "live_uid": "a6947233-2131-4318-aea7-fe12d403d27d",
+            "name": "letsencrypt-staging",
+            "namespace": "platform",
+            "override_namespace": null,
+            "resource_version": "127097",
+            "sensitive_fields": null,
+            "timeouts": null,
+            "uid": "a6947233-2131-4318-aea7-fe12d403d27d",
+            "validate_schema": true,
+            "wait": null,
+            "wait_for_rollout": true,
+            "yaml_body": "apiVersion: cert-manager.io/v1alpha2\r\nkind: ClusterIssuer\r\nmetadata:\r\n  name: letsencrypt-staging\r\n  namespace: platform\r\nspec:\r\n  acme:\r\n    # The ACME server URL\r\n    server: https://acme-staging-v02.api.letsencrypt.org/directory\r\n    # Email address used for ACME registration\r\n    email: mackenzie.a.z.c@gmail.com\r\n    # Name of a secret used to store the ACME account private key\r\n    privateKeySecretRef:\r\n      name: letsencrypt-staging\r\n    # Enable the HTTP-01 challenge provider\r\n    solvers:\r\n      - http01:\r\n          ingress:\r\n            class:  nginx\r\n",
+            "yaml_body_parsed": "apiVersion: cert-manager.io/v1alpha2\nkind: ClusterIssuer\nmetadata:\n  name: letsencrypt-staging\n  namespace: platform\nspec:\n  acme:\n    email: mackenzie.a.z.c@gmail.com\n    privateKeySecretRef:\n      name: letsencrypt-staging\n    server: https://acme-staging-v02.api.letsencrypt.org/directory\n    solvers:\n    - http01:\n        ingress:\n          class: nginx\n",
+            "yaml_incluster": "apiVersion=cert-manager.io/v1alpha2,kind=ClusterIssuer,metadata.name=letsencrypt-staging,spec.acme.email=mackenzie.a.z.c@gmail.com,spec.acme.privateKeySecretRef.name=letsencrypt-staging,spec.acme.server=https://acme-staging-v02.api.letsencrypt.org/directory,spec.acme.solvers.#=1,spec.acme.solvers.0.http01.ingress.class=nginx"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.cluster",
+      "mode": "managed",
+      "type": "digitalocean_floating_ip",
+      "name": "ingress_ip",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "droplet_id": null,
+            "id": "138.197.234.16",
+            "ip_address": "138.197.234.16",
+            "region": "sfo2",
+            "urn": "do:floatingip:138.197.234.16"
+          },
+          "private": "bnVsbA=="
+        }
+      ]
+    },
+    {
+      "module": "module.cluster",
+      "mode": "managed",
+      "type": "digitalocean_kubernetes_cluster",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 2,
+          "attributes": {
+            "auto_upgrade": false,
+            "cluster_subnet": "10.244.0.0/16",
+            "created_at": "2020-11-27 05:16:18 +0000 UTC",
+            "endpoint": "https://d4bf03d2-1cde-462e-8da5-09dc04459430.k8s.ondigitalocean.com",
+            "id": "d4bf03d2-1cde-462e-8da5-09dc04459430",
+            "ipv4_address": "159.65.66.93",
+            "kube_config": [
+              {
+                "client_certificate": "",
+                "client_key": "",
+                "cluster_ca_certificate": "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURKekNDQWcrZ0F3SUJBZ0lDQm5Vd0RRWUpLb1pJaHZjTkFRRUxCUUF3TXpFVk1CTUdBMVVFQ2hNTVJHbG4KYVhSaGJFOWpaV0Z1TVJvd0dBWURWUVFERXhGck9ITmhZWE1nUTJ4MWMzUmxjaUJEUVRBZUZ3MHlNREV4TWpjdwpOVEUyTWpOYUZ3MDBNREV4TWpjd05URTJNak5hTURNeEZUQVRCZ05WQkFvVERFUnBaMmwwWVd4UFkyVmhiakVhCk1CZ0dBMVVFQXhNUmF6aHpZV0Z6SUVOc2RYTjBaWElnUTBFd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUIKRHdBd2dnRUtBb0lCQVFEV21Pd2YyR3I1a1lYMDRkbnlTSWU3SUx2cmRSd2NXNkI2Y3hFYkJIQVZyRHY0WEdLNgp6YlhTVWtqejBQQ1FESjh2cllvQXRaeTJORk5iampOV3Y0djJKZ0tDajJ0NVRKTVM3WlVad2dNRytVdkI2T2tXCmJhWStjM1pvNldWQkZjREw0b2hkdE41blNCbm5VZnpobTZ4K0pEQ2Nma3Nnd1Irc0Z2MFhmMXRNU3lFeUpmOHAKK3l0MDNpQUdNcE9YcjUvWUJrSDczdVYzMW1waXZsUVUvQW5oS014MTZDNHU3R3RXOWhMUzNwVjJTUFgvQ3VTTApwYlhNTW4xbGhYN3d6Y2dEQTRuYk9XV2pncFdLREJkQVhEcWNpdG9naVBuem5na20rUFRZRnRVdkppanh4OXhmCnJNcVVqUU9zbERweFdjZVByNXkyT3lQTTFwT1Q1OGc5NXV1WEFnTUJBQUdqUlRCRE1BNEdBMVVkRHdFQi93UUUKQXdJQmhqQVNCZ05WSFJNQkFmOEVDREFHQVFIL0FnRUFNQjBHQTFVZERnUVdCQlNRWFEwRnpJNDZQNS9nTElFQwptakZFR20wK1hEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFvTU1ES3lBa1h1Q2pjMU80K1BLL3RhN2t2bnZWCjhuMDNzN29TVmUzWmk2SHFoU1hXaXdTSFZUdDFNZkZhbEx1d3ZmYU9Rbmpha3RPYU9uczZCdjhhbjR5bUZvOTEKT0JKblh1R000SmE1cVhKdzExUWc2ZnU5UFVjQkZ6cm9DYzdFcEJWWVBHSHplOFo2ZExRSVRvQmZkcVFxNUNocApFcjZWZFlObCtyTFdGdVZpNWE3U1BxSDhCeFl1VTBnVDNjSDJtZnZoOEQwb0dncFJsazVWSE14U2JSU2E2cHZUCmhWcmhGdWJXKzhwamVKSTlKaG1Kc2dsSFMwNzN1Nm0rSWUxWUg3TEhpR01rUVpWKzlxYkR6aFA2VUFsd0VxVlgKWTFLUGtFQjA1M1lHdUhWclA3Mno4MWV6ZnIveVFhNzViRnpFVGhzVmY5NzlvellFZWxhbCtMOTM2UT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K",
+                "expires_at": "2020-12-04T05:23:21Z",
+                "host": "https://d4bf03d2-1cde-462e-8da5-09dc04459430.k8s.ondigitalocean.com",
+                "raw_config": "apiVersion: v1\nkind: Config\nclusters:\n- cluster:\n    certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURKekNDQWcrZ0F3SUJBZ0lDQm5Vd0RRWUpLb1pJaHZjTkFRRUxCUUF3TXpFVk1CTUdBMVVFQ2hNTVJHbG4KYVhSaGJFOWpaV0Z1TVJvd0dBWURWUVFERXhGck9ITmhZWE1nUTJ4MWMzUmxjaUJEUVRBZUZ3MHlNREV4TWpjdwpOVEUyTWpOYUZ3MDBNREV4TWpjd05URTJNak5hTURNeEZUQVRCZ05WQkFvVERFUnBaMmwwWVd4UFkyVmhiakVhCk1CZ0dBMVVFQXhNUmF6aHpZV0Z6SUVOc2RYTjBaWElnUTBFd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUIKRHdBd2dnRUtBb0lCQVFEV21Pd2YyR3I1a1lYMDRkbnlTSWU3SUx2cmRSd2NXNkI2Y3hFYkJIQVZyRHY0WEdLNgp6YlhTVWtqejBQQ1FESjh2cllvQXRaeTJORk5iampOV3Y0djJKZ0tDajJ0NVRKTVM3WlVad2dNRytVdkI2T2tXCmJhWStjM1pvNldWQkZjREw0b2hkdE41blNCbm5VZnpobTZ4K0pEQ2Nma3Nnd1Irc0Z2MFhmMXRNU3lFeUpmOHAKK3l0MDNpQUdNcE9YcjUvWUJrSDczdVYzMW1waXZsUVUvQW5oS014MTZDNHU3R3RXOWhMUzNwVjJTUFgvQ3VTTApwYlhNTW4xbGhYN3d6Y2dEQTRuYk9XV2pncFdLREJkQVhEcWNpdG9naVBuem5na20rUFRZRnRVdkppanh4OXhmCnJNcVVqUU9zbERweFdjZVByNXkyT3lQTTFwT1Q1OGc5NXV1WEFnTUJBQUdqUlRCRE1BNEdBMVVkRHdFQi93UUUKQXdJQmhqQVNCZ05WSFJNQkFmOEVDREFHQVFIL0FnRUFNQjBHQTFVZERnUVdCQlNRWFEwRnpJNDZQNS9nTElFQwptakZFR20wK1hEQU5CZ2txaGtpRzl3MEJBUXNGQUFPQ0FRRUFvTU1ES3lBa1h1Q2pjMU80K1BLL3RhN2t2bnZWCjhuMDNzN29TVmUzWmk2SHFoU1hXaXdTSFZUdDFNZkZhbEx1d3ZmYU9Rbmpha3RPYU9uczZCdjhhbjR5bUZvOTEKT0JKblh1R000SmE1cVhKdzExUWc2ZnU5UFVjQkZ6cm9DYzdFcEJWWVBHSHplOFo2ZExRSVRvQmZkcVFxNUNocApFcjZWZFlObCtyTFdGdVZpNWE3U1BxSDhCeFl1VTBnVDNjSDJtZnZoOEQwb0dncFJsazVWSE14U2JSU2E2cHZUCmhWcmhGdWJXKzhwamVKSTlKaG1Kc2dsSFMwNzN1Nm0rSWUxWUg3TEhpR01rUVpWKzlxYkR6aFA2VUFsd0VxVlgKWTFLUGtFQjA1M1lHdUhWclA3Mno4MWV6ZnIveVFhNzViRnpFVGhzVmY5NzlvellFZWxhbCtMOTM2UT09Ci0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K\n    server: https://d4bf03d2-1cde-462e-8da5-09dc04459430.k8s.ondigitalocean.com\n  name: do-sfo2-ruste-dev-apps\ncontexts:\n- context:\n    cluster: do-sfo2-ruste-dev-apps\n    user: do-sfo2-ruste-dev-apps-admin\n  name: do-sfo2-ruste-dev-apps\ncurrent-context: do-sfo2-ruste-dev-apps\nusers:\n- name: do-sfo2-ruste-dev-apps-admin\n  user:\n    token: 00feadd4ae5c62ba11dd753e8220d216329c6e2877fa9232c36eb63f49e48f66\n",
+                "token": "00feadd4ae5c62ba11dd753e8220d216329c6e2877fa9232c36eb63f49e48f66"
+              }
+            ],
+            "name": "ruste-dev-apps",
+            "node_pool": [
+              {
+                "actual_node_count": 3,
+                "auto_scale": false,
+                "id": "60d45307-78d3-4940-baa0-36d0cc959be7",
+                "labels": {},
+                "max_nodes": 0,
+                "min_nodes": 0,
+                "name": "ruste-dev-apps-default-pool-01",
+                "node_count": 3,
+                "nodes": [
+                  {
+                    "created_at": "2020-11-27 05:16:18 +0000 UTC",
+                    "droplet_id": "218678056",
+                    "id": "f0497b95-83e2-4286-8a98-7194af37bc6b",
+                    "name": "ruste-dev-apps-default-pool-01-34y3w",
+                    "status": "running",
+                    "updated_at": "2020-11-27 05:21:16 +0000 UTC"
+                  },
+                  {
+                    "created_at": "2020-11-27 05:16:18 +0000 UTC",
+                    "droplet_id": "218678057",
+                    "id": "5303096b-d1ff-436a-b723-41e5ac138379",
+                    "name": "ruste-dev-apps-default-pool-01-34y3g",
+                    "status": "running",
+                    "updated_at": "2020-11-27 05:20:35 +0000 UTC"
+                  },
+                  {
+                    "created_at": "2020-11-27 05:16:18 +0000 UTC",
+                    "droplet_id": "218678055",
+                    "id": "020bee98-9691-4f64-9301-5eb121e17eb5",
+                    "name": "ruste-dev-apps-default-pool-01-34y3e",
+                    "status": "running",
+                    "updated_at": "2020-11-27 05:21:16 +0000 UTC"
+                  }
+                ],
+                "size": "s-2vcpu-4gb",
+                "tags": []
+              }
+            ],
+            "region": "sfo2",
+            "service_subnet": "10.245.0.0/16",
+            "status": "running",
+            "surge_upgrade": false,
+            "tags": [],
+            "updated_at": "2020-11-27 05:23:17 +0000 UTC",
+            "version": "1.19.3-do.2",
+            "vpc_uuid": "e8f4cd80-af6c-427d-95cf-46ea83c89c7f"
+          },
+          "private": "eyJzY2hlbWFfdmVyc2lvbiI6IjIifQ==",
+          "dependencies": [
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.external_dns",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "external_dns",
+      "provider": "module.external_dns.provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "atomic": false,
+            "chart": "external-dns",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "external-dns",
+            "keyring": null,
+            "lint": false,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "0.7.0",
+                "chart": "external-dns",
+                "name": "external-dns",
+                "namespace": "platform",
+                "revision": 1,
+                "values": "{\"digitalocean\":{\"apiToken\":\"ddba2b1bf323c831dc4e5ac0cc3ace6e29dd1b62d11ecf3a300780fef5754046\"},\"interval\":\"1m\",\"policy\":\"sync\",\"provider\":\"digitalocean\",\"rbac\":{\"create\":true}}",
+                "version": "2.20.4"
+              }
+            ],
+            "name": "external-dns",
+            "namespace": "platform",
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://charts.helm.sh/stable",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [],
+            "set_sensitive": [],
+            "set_string": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": [
+              "---\r\nrbac:\r\n  create: true\r\n\r\nprovider: digitalocean\r\n\r\ndigitalocean:\r\n  apiToken: ddba2b1bf323c831dc4e5ac0cc3ace6e29dd1b62d11ecf3a300780fef5754046\r\n\r\ninterval: \"1m\"\r\n\r\npolicy: sync # or upsert-only\r\n"
+            ],
+            "verify": false,
+            "version": "2.20.4",
+            "wait": true
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_floating_ip.ingress_ip",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.gemini",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "gemini",
+      "provider": "module.gemini.provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "atomic": false,
+            "chart": "gemini",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "gemini",
+            "keyring": null,
+            "lint": false,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "0.1.0",
+                "chart": "gemini",
+                "name": "gemini",
+                "namespace": "platform",
+                "revision": 1,
+                "values": "null",
+                "version": "0.0.4"
+              }
+            ],
+            "name": "gemini",
+            "namespace": "platform",
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://charts.fairwinds.com/stable/",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [],
+            "set_sensitive": [],
+            "set_string": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": null,
+            "verify": false,
+            "version": "0.0.4",
+            "wait": true
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_floating_ip.ingress_ip",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.ingress",
+      "mode": "data",
+      "type": "kubernetes_service",
+      "name": "lb",
+      "provider": "module.ingress.provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "platform/ingress-nginx-controller",
+            "load_balancer_ingress": [
+              {
+                "hostname": "",
+                "ip": "159.89.222.115"
+              }
+            ],
+            "metadata": [
+              {
+                "annotations": {
+                  "kubernetes.digitalocean.com/load-balancer-id": "0aed305f-e939-40d4-ba85-b663e8c36fc9",
+                  "meta.helm.sh/release-name": "ingress-nginx",
+                  "meta.helm.sh/release-namespace": "platform"
+                },
+                "generation": 0,
+                "labels": {
+                  "helm.sh/chart": "ingress-nginx-3.12.0"
+                },
+                "name": "ingress-nginx-controller",
+                "namespace": "platform",
+                "resource_version": "1969",
+                "self_link": "/api/v1/namespaces/platform/services/ingress-nginx-controller",
+                "uid": "0d80a526-e2b9-4123-8434-6dcd75031c60"
+              }
+            ],
+            "spec": [
+              {
+                "cluster_ip": "10.245.152.28",
+                "external_ips": [],
+                "external_name": "",
+                "external_traffic_policy": "Cluster",
+                "health_check_node_port": 0,
+                "load_balancer_ip": "",
+                "load_balancer_source_ranges": [],
+                "port": [
+                  {
+                    "name": "http",
+                    "node_port": 30002,
+                    "port": 80,
+                    "protocol": "TCP",
+                    "target_port": "http"
+                  },
+                  {
+                    "name": "https",
+                    "node_port": 31789,
+                    "port": 443,
+                    "protocol": "TCP",
+                    "target_port": "https"
+                  }
+                ],
+                "publish_not_ready_addresses": false,
+                "selector": {
+                  "app.kubernetes.io/component": "controller",
+                  "app.kubernetes.io/instance": "ingress-nginx",
+                  "app.kubernetes.io/name": "ingress-nginx"
+                },
+                "session_affinity": "None",
+                "type": "LoadBalancer"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.ingress",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "ingress_nginx",
+      "provider": "module.ingress.provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "atomic": false,
+            "chart": "ingress-nginx",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "ingress-nginx",
+            "keyring": null,
+            "lint": false,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "0.41.2",
+                "chart": "ingress-nginx",
+                "name": "ingress-nginx",
+                "namespace": "platform",
+                "revision": 1,
+                "values": "null",
+                "version": "3.12.0"
+              }
+            ],
+            "name": "ingress-nginx",
+            "namespace": "platform",
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://kubernetes.github.io/ingress-nginx",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [],
+            "set_sensitive": [],
+            "set_string": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": [
+              "---\r\n\r\n"
+            ],
+            "verify": false,
+            "version": "3.12.0",
+            "wait": true
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_floating_ip.ingress_ip",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vpc.digitalocean_vpc.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.ingress_workaround_dns",
+      "mode": "data",
+      "type": "digitalocean_domain",
+      "name": "workaround_domain",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "id": "goldengulp.com",
+            "name": "goldengulp.com",
+            "ttl": 1800,
+            "urn": "do:domain:goldengulp.com",
+            "zone_file": "$ORIGIN goldengulp.com.\n$TTL 1800\ngoldengulp.com. IN SOA ns1.digitalocean.com. hostmaster.goldengulp.com. 1606589987 10800 3600 604800 1800\ngoldengulp.com. 1800 IN NS ns1.digitalocean.com.\ngoldengulp.com. 1800 IN NS ns2.digitalocean.com.\ngoldengulp.com. 1800 IN NS ns3.digitalocean.com.\ncdn.foundry.goldengulp.com. 30 IN CNAME urixdor-skt.sfo2.cdn.digitaloceanspaces.com.\nfoundry.goldengulp.com. 30 IN A 134.209.140.70\nfaasd.goldengulp.com. 1800 IN A 138.197.209.42\nworkaround.goldengulp.com. 1800 IN A 159.89.222.115\nvault.goldengulp.com. 300 IN A 159.89.222.115\nvault.goldengulp.com. 300 IN TXT \"heritage=external-dns,external-dns/owner=default,external-dns/resource=ingress/platform/vault-ui\"\nnginx.goldengulp.com. 300 IN A 159.89.222.115\nnginx.goldengulp.com. 300 IN TXT \"heritage=external-dns,external-dns/owner=default,external-dns/resource=ingress/nginx-test/nginx-test\"\n"
+          }
+        }
+      ]
+    },
+    {
+      "module": "module.ingress_workaround_dns",
+      "mode": "managed",
+      "type": "digitalocean_record",
+      "name": "workaround",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "domain": "goldengulp.com",
+            "flags": 0,
+            "fqdn": "workaround.goldengulp.com",
+            "id": "123481209",
+            "name": "workaround",
+            "port": 0,
+            "priority": 0,
+            "tag": "",
+            "ttl": 1800,
+            "type": "A",
+            "value": "159.89.222.115",
+            "weight": 0
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.ingress.data.kubernetes_service.lb",
+            "module.ingress_workaround_dns.data.digitalocean_domain.workaround_domain"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vault",
+      "mode": "managed",
+      "type": "helm_release",
+      "name": "vault_primary",
+      "provider": "module.vault.provider[\"registry.terraform.io/hashicorp/helm\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "atomic": false,
+            "chart": "vault",
+            "cleanup_on_fail": false,
+            "create_namespace": false,
+            "dependency_update": false,
+            "description": null,
+            "devel": null,
+            "disable_crd_hooks": false,
+            "disable_openapi_validation": false,
+            "disable_webhooks": false,
+            "force_update": false,
+            "id": "vault-primary",
+            "keyring": null,
+            "lint": false,
+            "max_history": 0,
+            "metadata": [
+              {
+                "app_version": "1.5.4",
+                "chart": "vault",
+                "name": "vault-primary",
+                "namespace": "platform",
+                "revision": 13,
+                "values": "{\"dev\":{\"enabled\":false},\"injector\":{\"annotations\":{\"vault.hashicorp.com/agent-init-first\":\"true\"}},\"server\":{\"auditStorage\":{\"enabled\":true},\"dataStorage\":{\"enabled\":true},\"extraEnvironmentVars\":{\"VAULT_ADDR\":\"https://127.0.0.1:8200\"},\"extraVolumes\":[{\"name\":\"vault-ui-tls\",\"type\":\"secret\"}],\"ha\":{\"config\":\"# mjdsadjsadjlsadjlksajdlk\\nui = true\\nlistener \\\"tcp\\\" {\\n  tls_disable     = \\\"false\\\" # \\\"false\\\"\\n  tls_cert_file   = \\\"/vault/userconfig/vault-ui-tls/tls.crt\\\"\\n  tls_key_file    = \\\"/vault/userconfig/vault-ui-tls/tls.key\\\"\\n  address         = \\\"[::]:8200\\\"\\n  cluster_address = \\\"[::]:8201\\\"\\n}\\nstorage \\\"raft\\\" {\\n  path = \\\"/vault/data\\\"\\n}\\nservice_registration \\\"kubernetes\\\" {}\\n\",\"enabled\":true,\"raft\":{\"enabled\":true},\"replicas\":2},\"image\":{\"repository\":\"vault\",\"tag\":\"latest\"}},\"ui\":{\"annotations\":{\"service.beta.kubernetes.io/do-loadbalancer-hostname\":\"workaround.goldengulp.com\"},\"enabled\":true,\"serviceType\":\"ClusterIP\"}}",
+                "version": "0.8.0"
+              }
+            ],
+            "name": "vault-primary",
+            "namespace": "platform",
+            "postrender": [],
+            "recreate_pods": false,
+            "render_subchart_notes": true,
+            "replace": false,
+            "repository": "https://helm.releases.hashicorp.com/",
+            "repository_ca_file": null,
+            "repository_cert_file": null,
+            "repository_key_file": null,
+            "repository_password": null,
+            "repository_username": null,
+            "reset_values": false,
+            "reuse_values": false,
+            "set": [],
+            "set_sensitive": [],
+            "set_string": [],
+            "skip_crds": false,
+            "status": "deployed",
+            "timeout": 300,
+            "values": [
+              "dev:\r\n  enabled: false\r\n\r\ninjector:\r\n  annotations:\r\n    \"vault.hashicorp.com/agent-init-first\": \"true\"\r\n\r\nserver:\r\n  image:\r\n    repository: vault\r\n    tag: latest\r\n  dataStorage:\r\n    enabled: true\r\n  auditStorage:\r\n    enabled: true\r\n  extraVolumes:\r\n    - type: secret\r\n      name: vault-ui-tls\r\n  extraEnvironmentVars:\r\n    VAULT_ADDR: https://127.0.0.1:8200\r\n  ha:\r\n    enabled: true\r\n    replicas: 2\r\n    raft:\r\n      enabled: true\r\n    config: |\r\n      # mjdsadjsadjlsadjlksajdlk\r\n      ui = true\r\n      listener \"tcp\" {\r\n        tls_disable     = \"false\" # \"false\"\r\n        tls_cert_file   = \"/vault/userconfig/vault-ui-tls/tls.crt\"\r\n        tls_key_file    = \"/vault/userconfig/vault-ui-tls/tls.key\"\r\n        address         = \"[::]:8200\"\r\n        cluster_address = \"[::]:8201\"\r\n      }\r\n      storage \"raft\" {\r\n        path = \"/vault/data\"\r\n      }\r\n      service_registration \"kubernetes\" {}\r\n\r\nui:\r\n  enabled: true\r\n  serviceType: ClusterIP\r\n  annotations:\r\n    service.beta.kubernetes.io/do-loadbalancer-hostname: workaround.goldengulp.com\r\n"
+            ],
+            "verify": false,
+            "version": "0.8.0",
+            "wait": true
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.ingress_workaround_dns.digitalocean_record.workaround",
+            "module.vault_ui_tls.kubernetes_secret.secret"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vault_gemini_backups",
+      "mode": "managed",
+      "type": "kubectl_manifest",
+      "name": "config",
+      "provider": "module.vault_gemini_backups.provider[\"registry.terraform.io/gavinbunney/kubectl\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_version": "gemini.fairwinds.com/v1beta1",
+            "force_new": false,
+            "id": "/apis/gemini.fairwinds.com/v1beta1/namespaces/platform/snapshotgroups/vault-data",
+            "ignore_fields": null,
+            "kind": "SnapshotGroup",
+            "live_manifest_incluster": "apiVersion=gemini.fairwinds.com/v1beta1,kind=SnapshotGroup,metadata.name=vault-data,metadata.namespace=platform,spec.persistentVolumeClaim.claimName=platform,spec.schedule.#=1,spec.schedule.0.every=10 minutes,spec.schedule.0.keep=3",
+            "live_resource_version": "2169",
+            "live_uid": "4f5fa640-7083-436b-98fe-7f695558bdd9",
+            "name": "vault-data",
+            "namespace": "platform",
+            "override_namespace": null,
+            "resource_version": "2169",
+            "sensitive_fields": null,
+            "timeouts": null,
+            "uid": "4f5fa640-7083-436b-98fe-7f695558bdd9",
+            "validate_schema": true,
+            "wait": null,
+            "wait_for_rollout": true,
+            "yaml_body": "apiVersion: gemini.fairwinds.com/v1beta1\r\nkind: SnapshotGroup\r\nmetadata:\r\n  name: vault-data\r\n  namespace: platform\r\nspec:\r\n  persistentVolumeClaim:\r\n    claimName: \"platform\"\r\n  schedule:\r\n    - every: 10 minutes\r\n      keep: 3\r\n",
+            "yaml_body_parsed": "apiVersion: gemini.fairwinds.com/v1beta1\nkind: SnapshotGroup\nmetadata:\n  name: vault-data\n  namespace: platform\nspec:\n  persistentVolumeClaim:\n    claimName: platform\n  schedule:\n  - every: 10 minutes\n    keep: 3\n",
+            "yaml_incluster": "apiVersion=gemini.fairwinds.com/v1beta1,kind=SnapshotGroup,metadata.name=vault-data,metadata.namespace=platform,spec.persistentVolumeClaim.claimName=platform,spec.schedule.#=1,spec.schedule.0.every=10 minutes,spec.schedule.0.keep=3"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vault_ui_ingress",
+      "mode": "managed",
+      "type": "kubectl_manifest",
+      "name": "ingress",
+      "provider": "provider[\"registry.terraform.io/gavinbunney/kubectl\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_version": "extensions/v1beta1",
+            "force_new": false,
+            "id": "/apis/extensions/v1beta1/namespaces/platform/ingresses/vault-ui",
+            "ignore_fields": null,
+            "kind": "Ingress",
+            "live_manifest_incluster": "apiVersion=extensions/v1beta1,kind=Ingress,metadata.annotations.cert-manager.io/cluster-issuer=letsencrypt-staging,metadata.annotations.kubernetes.io/ingress.allow-http=false,metadata.annotations.kubernetes.io/ingress.class=nginx,metadata.annotations.kubernetes.io/tls-acme=true,metadata.annotations.nginx.ingress.kubernetes.io/backend-protocol=HTTPS,metadata.annotations.nginx.ingress.kubernetes.io/force-ssl-redirect=true,metadata.annotations.nginx.ingress.kubernetes.io/ssl-passthrough=true,metadata.name=vault-ui,metadata.namespace=platform,spec.rules.#=1,spec.rules.0.host=vault.goldengulp.com,spec.rules.0.http.paths.#=1,spec.rules.0.http.paths.0.backend.serviceName=vault-primary-ui,spec.rules.0.http.paths.0.backend.servicePort=8200,spec.rules.0.http.paths.0.path=/,spec.rules.0.http.paths.0.pathType=ImplementationSpecific",
+            "live_resource_version": "199082",
+            "live_uid": "5bb67b49-78ce-4542-971e-82059e26c838",
+            "name": "vault-ui",
+            "namespace": "platform",
+            "override_namespace": null,
+            "resource_version": "199082",
+            "sensitive_fields": null,
+            "timeouts": null,
+            "uid": "5bb67b49-78ce-4542-971e-82059e26c838",
+            "validate_schema": true,
+            "wait": null,
+            "wait_for_rollout": true,
+            "yaml_body": "kind: Ingress\r\napiVersion: extensions/v1beta1\r\nmetadata:\r\n  name: vault-ui\r\n  namespace: platform\r\n  annotations:\r\n    cert-manager.io/cluster-issuer: letsencrypt-staging\r\n    kubernetes.io/tls-acme: 'true'\r\n    kubernetes.io/ingress.allow-http: \"false\"\r\n    kubernetes.io/ingress.class: \"nginx\"\r\n    nginx.ingress.kubernetes.io/force-ssl-redirect: \"true\"\r\n    nginx.ingress.kubernetes.io/ssl-passthrough: \"true\"\r\n    nginx.ingress.kubernetes.io/backend-protocol: \"HTTPS\"\r\n\r\nspec:\r\n  rules:\r\n    - host: vault.goldengulp.com\r\n      http:\r\n        paths:\r\n          - path: /\r\n            pathType: ImplementationSpecific\r\n            backend:\r\n              serviceName: vault-primary-ui\r\n              servicePort: 8200\r\n",
+            "yaml_body_parsed": "apiVersion: extensions/v1beta1\nkind: Ingress\nmetadata:\n  annotations:\n    cert-manager.io/cluster-issuer: letsencrypt-staging\n    kubernetes.io/ingress.allow-http: \"false\"\n    kubernetes.io/ingress.class: nginx\n    kubernetes.io/tls-acme: \"true\"\n    nginx.ingress.kubernetes.io/backend-protocol: HTTPS\n    nginx.ingress.kubernetes.io/force-ssl-redirect: \"true\"\n    nginx.ingress.kubernetes.io/ssl-passthrough: \"true\"\n  name: vault-ui\n  namespace: platform\nspec:\n  rules:\n  - host: vault.goldengulp.com\n    http:\n      paths:\n      - backend:\n          serviceName: vault-primary-ui\n          servicePort: 8200\n        path: /\n        pathType: ImplementationSpecific\n",
+            "yaml_incluster": "apiVersion=extensions/v1beta1,kind=Ingress,metadata.annotations.cert-manager.io/cluster-issuer=letsencrypt-staging,metadata.annotations.kubernetes.io/ingress.allow-http=false,metadata.annotations.kubernetes.io/ingress.class=nginx,metadata.annotations.kubernetes.io/tls-acme=true,metadata.annotations.nginx.ingress.kubernetes.io/backend-protocol=HTTPS,metadata.annotations.nginx.ingress.kubernetes.io/force-ssl-redirect=true,metadata.annotations.nginx.ingress.kubernetes.io/ssl-passthrough=true,metadata.name=vault-ui,metadata.namespace=platform,spec.rules.#=1,spec.rules.0.host=vault.goldengulp.com,spec.rules.0.http.paths.#=1,spec.rules.0.http.paths.0.backend.serviceName=vault-primary-ui,spec.rules.0.http.paths.0.backend.servicePort=8200,spec.rules.0.http.paths.0.path=/,spec.rules.0.http.paths.0.pathType=ImplementationSpecific"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vault.helm_release.vault_primary"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vault_ui_tls",
+      "mode": "managed",
+      "type": "kubectl_manifest",
+      "name": "certificate",
+      "provider": "provider[\"registry.terraform.io/gavinbunney/kubectl\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "api_version": "cert-manager.io/v1",
+            "force_new": false,
+            "id": "/apis/cert-manager.io/v1/namespaces/platform/certificates/vault-tls-certificate",
+            "ignore_fields": null,
+            "kind": "Certificate",
+            "live_manifest_incluster": "apiVersion=cert-manager.io/v1,kind=Certificate,metadata.name=vault-tls-certificate,metadata.namespace=platform,spec.dnsNames.#=1,spec.dnsNames.0=vault.goldengulp.com,spec.issuerRef.kind=ClusterIssuer,spec.issuerRef.name=letsencrypt-staging,spec.secretName=vault-ui-tls",
+            "live_resource_version": "199101",
+            "live_uid": "2d2b6e75-960e-4f72-9e50-ab7deefd8dc4",
+            "name": "vault-tls-certificate",
+            "namespace": "platform",
+            "override_namespace": null,
+            "resource_version": "198667",
+            "sensitive_fields": null,
+            "timeouts": null,
+            "uid": "2d2b6e75-960e-4f72-9e50-ab7deefd8dc4",
+            "validate_schema": true,
+            "wait": null,
+            "wait_for_rollout": true,
+            "yaml_body": "apiVersion: cert-manager.io/v1\r\nkind: Certificate\r\nmetadata:\r\n  name: vault-tls-certificate\r\n  namespace: platform\r\nspec:\r\n  secretName: vault-ui-tls\r\n  issuerRef:\r\n    name: letsencrypt-staging\r\n    kind: ClusterIssuer\r\n  dnsNames:\r\n    - vault.goldengulp.com\r\n",
+            "yaml_body_parsed": "apiVersion: cert-manager.io/v1\nkind: Certificate\nmetadata:\n  name: vault-tls-certificate\n  namespace: platform\nspec:\n  dnsNames:\n  - vault.goldengulp.com\n  issuerRef:\n    kind: ClusterIssuer\n    name: letsencrypt-staging\n  secretName: vault-ui-tls\n",
+            "yaml_incluster": "apiVersion=cert-manager.io/v1,kind=Certificate,metadata.name=vault-tls-certificate,metadata.namespace=platform,spec.dnsNames.#=1,spec.dnsNames.0=vault.goldengulp.com,spec.issuerRef.kind=ClusterIssuer,spec.issuerRef.name=letsencrypt-staging,spec.secretName=vault-ui-tls"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo2MDAwMDAwMDAwMDB9fQ==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main",
+            "module.vault_ui_tls.kubernetes_secret.secret"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vault_ui_tls",
+      "mode": "managed",
+      "type": "kubernetes_secret",
+      "name": "secret",
+      "provider": "provider[\"registry.terraform.io/hashicorp/kubernetes\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "data": {
+              "tls.crt": "-----BEGIN CERTIFICATE-----\nMIIFQjCCBCqgAwIBAgITAPrbmQbkR54WpkPcwaX9cxjH8TANBgkqhkiG9w0BAQsF\nADAiMSAwHgYDVQQDDBdGYWtlIExFIEludGVybWVkaWF0ZSBYMTAeFw0yMDExMjgw\nMzA4MzFaFw0yMTAyMjYwMzA4MzFaMB8xHTAbBgNVBAMTFHZhdWx0LmdvbGRlbmd1\nbHAuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAukdeHia0xZqa\n21Aju3lkXh3HLt1d/4OY/GXq6D6wJ9MjGGirt0Y9sQCvjcvaCX4tED9HWiTOHQZ3\nEtD9a9iE+K8APG0EkReTeMSnVByK584sDph59A7vNXW5YN8WjnLtPe8w6aw6hGSa\nqmSFd8O4rvE05qcQzwgkchj7SPuwqSCAUUHdyKn0yR0iDvDJW3ofBhLQyZK8d09T\nX0xUqHB/+/lVUrGbe4QUIc5lOscbzYgRPTXxA3tyzQAeptxLcRttR7NjEAmvEcQj\nm0V042XhMYRW7Z05mwHngxPeb5or/wLXc3FN26GZscOdo5ISstNW+/TE2QcjSHf8\n2MxEtz4zpwIDAQABo4ICcjCCAm4wDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQG\nCCsGAQUFBwMBBggrBgEFBQcDAjAMBgNVHRMBAf8EAjAAMB0GA1UdDgQWBBR7WCTN\ngA/CeS9Jd8G6AcZuxPErLjAfBgNVHSMEGDAWgBTAzANGuVggzFxycPPhLssgpvVo\nOjB3BggrBgEFBQcBAQRrMGkwMgYIKwYBBQUHMAGGJmh0dHA6Ly9vY3NwLnN0Zy1p\nbnQteDEubGV0c2VuY3J5cHQub3JnMDMGCCsGAQUFBzAChidodHRwOi8vY2VydC5z\ndGctaW50LXgxLmxldHNlbmNyeXB0Lm9yZy8wHwYDVR0RBBgwFoIUdmF1bHQuZ29s\nZGVuZ3VscC5jb20wTAYDVR0gBEUwQzAIBgZngQwBAgEwNwYLKwYBBAGC3xMBAQEw\nKDAmBggrBgEFBQcCARYaaHR0cDovL2Nwcy5sZXRzZW5jcnlwdC5vcmcwggEFBgor\nBgEEAdZ5AgQCBIH2BIHzAPEAdgAW6GnB0ZXq18P4lxrj8HYB94zhtp0xqFIYtoN/\nMagVCAAAAXYNCb53AAAEAwBHMEUCICPiWtx+XptHeo3u2OFsBrzEUWne4lIeSasR\n+Pha8EnyAiEA1JwsVqXj09KT5RE7Hrpvbc84xt1PKrsLjcvkmoNii9UAdwDdmTT8\npeckgMlWaH2BNJkISbJJ97Vp2Me8qz9cwfNuZAAAAXYNCcBqAAAEAwBIMEYCIQCv\n795RWm2VYCptWOKi8KRPPiBoo3mi+uHIQdFR79BhnAIhAIC1MNQPrRxKDU2bTwB5\nPZwiKiQq6z3nzRxgA6AceUIDMA0GCSqGSIb3DQEBCwUAA4IBAQAfkygf33FwdzoJ\nDU5H7cEFcVMxOLpR9HJcX7vqyitfNTPfv1cfUZzvlwvaZs5Vwy6wyfzXLjMh+HNT\nA9noKDtrzQnKVS+6rq+Q26wv5fGvZgLLsduehsuZPDrN258jU2bpKHQGp5Zw0S3g\n9CZuD9bCWA7GgWeUi89RnN1Zkn/bT1VBU/igDRqWRKIKv6JCn7Mny0FqOuuKaG3c\naq93UkJ/R9M4fQrUQW4XxGo71DZNrjFMcVPP7d+yxEZqhzuBKaYvJ48RCS1C7GNm\nF5kHFjsATzirqS+T0afjqHH+WUEbvS41LmN9mg+dUzyepBsQKUFJjmO9Hb6Nj8k4\n3ecTad1Q\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIIEqzCCApOgAwIBAgIRAIvhKg5ZRO08VGQx8JdhT+UwDQYJKoZIhvcNAQELBQAw\nGjEYMBYGA1UEAwwPRmFrZSBMRSBSb290IFgxMB4XDTE2MDUyMzIyMDc1OVoXDTM2\nMDUyMzIyMDc1OVowIjEgMB4GA1UEAwwXRmFrZSBMRSBJbnRlcm1lZGlhdGUgWDEw\nggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDtWKySDn7rWZc5ggjz3ZB0\n8jO4xti3uzINfD5sQ7Lj7hzetUT+wQob+iXSZkhnvx+IvdbXF5/yt8aWPpUKnPym\noLxsYiI5gQBLxNDzIec0OIaflWqAr29m7J8+NNtApEN8nZFnf3bhehZW7AxmS1m0\nZnSsdHw0Fw+bgixPg2MQ9k9oefFeqa+7Kqdlz5bbrUYV2volxhDFtnI4Mh8BiWCN\nxDH1Hizq+GKCcHsinDZWurCqder/afJBnQs+SBSL6MVApHt+d35zjBD92fO2Je56\ndhMfzCgOKXeJ340WhW3TjD1zqLZXeaCyUNRnfOmWZV8nEhtHOFbUCU7r/KkjMZO9\nAgMBAAGjgeMwgeAwDgYDVR0PAQH/BAQDAgGGMBIGA1UdEwEB/wQIMAYBAf8CAQAw\nHQYDVR0OBBYEFMDMA0a5WCDMXHJw8+EuyyCm9Wg6MHoGCCsGAQUFBwEBBG4wbDA0\nBggrBgEFBQcwAYYoaHR0cDovL29jc3Auc3RnLXJvb3QteDEubGV0c2VuY3J5cHQu\nb3JnLzA0BggrBgEFBQcwAoYoaHR0cDovL2NlcnQuc3RnLXJvb3QteDEubGV0c2Vu\nY3J5cHQub3JnLzAfBgNVHSMEGDAWgBTBJnSkikSg5vogKNhcI5pFiBh54DANBgkq\nhkiG9w0BAQsFAAOCAgEABYSu4Il+fI0MYU42OTmEj+1HqQ5DvyAeyCA6sGuZdwjF\nUGeVOv3NnLyfofuUOjEbY5irFCDtnv+0ckukUZN9lz4Q2YjWGUpW4TTu3ieTsaC9\nAFvCSgNHJyWSVtWvB5XDxsqawl1KzHzzwr132bF2rtGtazSqVqK9E07sGHMCf+zp\nDQVDVVGtqZPHwX3KqUtefE621b8RI6VCl4oD30Olf8pjuzG4JKBFRFclzLRjo/h7\nIkkfjZ8wDa7faOjVXx6n+eUQ29cIMCzr8/rNWHS9pYGGQKJiY2xmVC9h12H99Xyf\nzWE9vb5zKP3MVG6neX1hSdo7PEAb9fqRhHkqVsqUvJlIRmvXvVKTwNCP3eCjRCCI\nPTAvjV+4ni786iXwwFYNz8l3PmPLCyQXWGohnJ8iBm+5nk7O2ynaPVW0U2W+pt2w\nSVuvdDM5zGv2f9ltNWUiYZHJ1mmO97jSY/6YfdOUH66iRtQtDkHBRdkNBsMbD+Em\n2TgBldtHNSJBfB3pm9FblgOcJ0FSWcUDWJ7vO0+NTXlgrRofRT6pVywzxVo6dND0\nWzYlTWeUVsO40xJqhgUQRER9YLOLxJ0O6C8i0xFxAMKOtSdodMB3RIwt7RFQ0uyt\nn5Z5MqkYhlMI3J1tPRTp1nEt9fyGspBOO05gi148Qasp+3N+svqKomoQglNoAxU=\n-----END CERTIFICATE-----\n",
+              "tls.key": "-----BEGIN RSA PRIVATE KEY-----\nMIIEpAIBAAKCAQEAukdeHia0xZqa21Aju3lkXh3HLt1d/4OY/GXq6D6wJ9MjGGir\nt0Y9sQCvjcvaCX4tED9HWiTOHQZ3EtD9a9iE+K8APG0EkReTeMSnVByK584sDph5\n9A7vNXW5YN8WjnLtPe8w6aw6hGSaqmSFd8O4rvE05qcQzwgkchj7SPuwqSCAUUHd\nyKn0yR0iDvDJW3ofBhLQyZK8d09TX0xUqHB/+/lVUrGbe4QUIc5lOscbzYgRPTXx\nA3tyzQAeptxLcRttR7NjEAmvEcQjm0V042XhMYRW7Z05mwHngxPeb5or/wLXc3FN\n26GZscOdo5ISstNW+/TE2QcjSHf82MxEtz4zpwIDAQABAoIBAH0yYDhljVPOIExM\nZWeoI+P5oZiG4ZlMyjLBEQu8rkpl5o2OM/L++5GOQ29K1iVRL1pfHUahvAHYCYmU\n+u5T3LMDc2YpY0tdDBm8GjY25Mj9UbERm82DiBRnJgvMhG2DIp5gt4Al6EJ5F1Z0\nLxwaaHLz3Lk1CeALuesRjTo1JzvTXcAF93zIaPcZaPi17AvI3/Jk4Zhg05twyEA7\nQkkiXxFfzALxMk9E1BmKYv9y48mc/SE/91Vj5sXC+suhfDTSTN9wdl2ZOTJo9wu4\n9gCXPJO8tL5gfPfdlfST2iJDKmqWllGJ7vAcnlX17TkmPbNyey5DQSVcUwz78zTq\neIU3jUkCgYEA2bXxw3FFn5AjIcxWTo0eXVd3JRcreZ5N6oRdJyNKf7l2fs+UsQOe\nP5h6RuySUNpkzof8L89vuJb5p8zGlB9Ua21OqwlQjEJ/bfyFgbuAG8fO4U5gHlXx\npFZzjhboFZeqJTUYGBRNr42hevzp4mIXkvmNfHo2p1qRNSINDhW2+3MCgYEA2wpA\n5VN1M2HeD/yWU1gwmTG9JFQl7EnUwguxm8tRgh5DOUDX94xj1mTldIziGUBlyTIS\ncecVEPfkENYqejdk1UnUjFTcm442yv4YXnWIUccuX/Fgws86dVeizZULomvfvO5Y\nXtETuX3W8d1nMEDUsgRajtNKF2jQJyulIHFSwf0CgYAUmXOTs48L5v57/zKXYiDi\nYhlC6CtT6Zejvfx2bI9rAGhm3UtLaHU7vTisp0u83L03EYTaHT2L8LUUnHqZn1FE\njOYppsr5Sn12MbOML+qSNlir1tefZzBjBU8Pvbkd+ei+doSeGqWzG6qQ0YdrxS5H\n2Nb7VTEAqsAcj+k+UO2sYwKBgQCqBdh/6ftkiggsEp3BTghTMaempmbVdi3e/eK8\nkuLPBJybuXiqX+AzUBhIEv+CKFmaBfMJVR0mEbWHWCaavZrYcLm6wDiJyqc/hGL4\nF3VcPScDNEMulFrFMORffd0NE30Vk1EnMFWGO2b4USrC6t/u2rBMgzfU2fgRH7DK\ncQyTJQKBgQC9e9cBo2WlaFvbkK/O4DXj1lQySzVtC88vLDPX4qiNCWe+PP7ot2+i\nwuMT86N4FJCSiBE9DOq9J06MrxCt4uXnnP4ECGjNJYeqfV9XpOAIS3+j7YmpdEwr\n9xFgN87CUZ8MfQ0B0Z4d4rrSPBjQD7jDJC82kiRqYutHvyjVA7oYfA==\n-----END RSA PRIVATE KEY-----\n"
+            },
+            "id": "platform/vault-ui-tls",
+            "metadata": [
+              {
+                "annotations": {
+                  "cert-manager.io/alt-names": "vault.goldengulp.com",
+                  "cert-manager.io/certificate-name": "vault-tls-certificate",
+                  "cert-manager.io/common-name": "vault.goldengulp.com",
+                  "cert-manager.io/ip-sans": "",
+                  "cert-manager.io/issuer-group": "",
+                  "cert-manager.io/issuer-kind": "ClusterIssuer",
+                  "cert-manager.io/issuer-name": "letsencrypt-staging",
+                  "cert-manager.io/uri-sans": ""
+                },
+                "generate_name": "",
+                "generation": 0,
+                "labels": {},
+                "name": "vault-ui-tls",
+                "namespace": "platform",
+                "resource_version": "199096",
+                "self_link": "/api/v1/namespaces/platform/secrets/vault-ui-tls",
+                "uid": "3cac9b41-a905-4a8b-a123-9fa5720bc331"
+              }
+            ],
+            "type": "Opaque"
+          },
+          "private": "bnVsbA==",
+          "dependencies": [
+            "kubernetes_namespace.platform_ns",
+            "module.cluster.digitalocean_kubernetes_cluster.main"
+          ]
+        }
+      ]
+    },
+    {
+      "module": "module.vpc",
+      "mode": "managed",
+      "type": "digitalocean_vpc",
+      "name": "main",
+      "provider": "provider[\"registry.terraform.io/digitalocean/digitalocean\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "created_at": "2020-11-27 05:16:10 +0000 UTC",
+            "default": false,
+            "description": "",
+            "id": "e8f4cd80-af6c-427d-95cf-46ea83c89c7f",
+            "ip_range": "10.120.16.0/20",
+            "name": "ruste-dev",
+            "region": "sfo2",
+            "timeouts": null,
+            "urn": "do:vpc:e8f4cd80-af6c-427d-95cf-46ea83c89c7f"
+          },
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiZGVsZXRlIjoxMjAwMDAwMDAwMDB9fQ=="
+        }
+      ]
+    }
+  ]
+}
+

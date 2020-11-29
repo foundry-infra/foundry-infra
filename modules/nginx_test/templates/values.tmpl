@@ -1,12 +1,28 @@
 ---
+serviceAccount:
+  name: nginx-test
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/role: "nginx-test"
+  vault.hashicorp.com/agent-inject-template-things-and-stuff.txt: |
+    {{- with secret "foundry/data/nginx-test/test" -}}
+    the stuff: \"{{ .Data.data.data_stuff }}\"
+    {{- end -}}
+  vault.hashicorp.com/tls-skip-verify: "true"
 ingress:
   enabled: true
-  certManager: true
-  hostname: ${hostname}
-  tls: true
+  hosts:
+    - host: ${hostname}
+      paths:
+        - /
+  tls:
+    - secretName: nginx-test-tls
+      hosts:
+        - ${hostname}
   annotations:
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: ${issuer_name}
+    kubernetes.io/tls-acme: "true"
 service:
   annotations:
     service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}
