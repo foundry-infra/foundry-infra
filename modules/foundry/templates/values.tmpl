@@ -1,0 +1,55 @@
+---
+image:
+  repository: felddy/foundryvtt
+
+serviceAccount:
+  name: ${service_account_name}
+
+service:
+  serviceType: ClusterIP
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}
+
+ingress:
+  enabled: true
+  hosts:
+    - host: ${hostname}
+      paths:
+        - /
+  tls:
+    - secretName: ${foundry_server_name}-tls
+      hosts:
+        - ${hostname}
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: ${issuer_name}
+    kubernetes.io/tls-acme: "true"
+
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/role: "${vault_role_name}"
+  vault.hashicorp.com/agent-inject-secret-config: "foundry/data/frost-wind-terror/config"
+  vault.hashicorp.com/agent-inject-template-config: |
+    {{- with secret "foundry/data/frost-wind-terror/config" -}}
+    export FOUNDRY_ADMIN_KEY="{{ .Data.data.FOUNDRY_ADMIN_KEY }}"
+    export FOUNDRY_AWS_CONFIG="{{ .Data.data.FOUNDRY_AWS_CONFIG }}"
+    export FOUNDRY_HOSTNAME="{{ .Data.data.FOUNDRY_HOSTNAME }}"
+    export FOUNDRY_LICENSE_KEY="{{ .Data.data.FOUNDRY_LICENSE_KEY }}"
+    export FOUNDRY_PASSWORD="{{ .Data.data.FOUNDRY_PASSWORD }}"
+    export FOUNDRY_PROXY_PORT="{{ .Data.data.FOUNDRY_PROXY_PORT }}"
+    export FOUNDRY_PROXY_SSL="{{ .Data.data.FOUNDRY_PROXY_SSL }}"
+    export FOUNDRY_USERNAME="{{ .Data.data.FOUNDRY_USERNAME }}"
+    {{- end -}}
+  vault.hashicorp.com/tls-skip-verify: "true"
+
+persistence:
+  claimName: ${foundry_server_name}
+  size_gbs: "100Gi"
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1000Mi
+  requests:
+    cpu: 300m
+    memory: 300Mi
