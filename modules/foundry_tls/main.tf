@@ -16,6 +16,9 @@ resource "kubernetes_secret" "secret"  {
   lifecycle {
     ignore_changes = [data, metadata.0.annotations]
   }
-  data = {}
+  data = {
+    "tls.key": ""
+    "tls.crt": ""
+  }
 }
 
