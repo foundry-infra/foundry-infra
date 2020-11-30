@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_pvc?ref=v0.0.7-rc1"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_pvc?ref=v0.0.7-rc2"
 }
 
 include {
@@ -16,6 +16,12 @@ dependency "k8s" {
 
 dependency "policies" {
   config_path = "../goldengulp_policies"
+  mock_outputs = {
+    namespace = "goldengulp_mock"
+    service_account_name = "goldengulp_mock"
+    policy_name = "goldengulp_mock"
+    role_name = "goldengulp_mock"
+  }
 }
 
 inputs = {

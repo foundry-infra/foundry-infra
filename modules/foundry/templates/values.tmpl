@@ -24,9 +24,9 @@ ingress:
 podAnnotations:
   vault.hashicorp.com/agent-inject: "true"
   vault.hashicorp.com/role: "${vault_role_name}"
-  vault.hashicorp.com/agent-inject-secret-config: "foundry/data/frost-wind-terror/config"
+  vault.hashicorp.com/agent-inject-secret-config: "foundry/data/${foundry_server_name}/config"
   vault.hashicorp.com/agent-inject-template-config: |
-    {{- with secret "foundry/data/frost-wind-terror/config" -}}
+    {{- with secret "foundry/data/${foundry_server_name}/config" -}}
     export FOUNDRY_ADMIN_KEY="{{ .Data.data.FOUNDRY_ADMIN_KEY }}"
     export FOUNDRY_AWS_CONFIG="{{ .Data.data.FOUNDRY_AWS_CONFIG }}"
     export FOUNDRY_HOSTNAME="{{ .Data.data.FOUNDRY_HOSTNAME }}"
