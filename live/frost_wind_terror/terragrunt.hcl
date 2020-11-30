@@ -21,6 +21,10 @@ dependency "ns" {
   }
 }
 
+dependency "policies" {
+  config_path = "../frost_wind_terror_policies"
+}
+
 dependency "pvc" {
   config_path = "../frost_wind_terror_pvc"
 }
@@ -57,27 +61,6 @@ provider "helm" {
     token            = var.platform_provider.k8s_token
     cluster_ca_certificate = var.platform_provider.k8s_cluster_ca_certificate_b64d
   }
-}
-provider "digitalocean" {
-  token = "${get_env("TF_VAR_DO_TOKEN", "")}"
-  spaces_access_id = "${get_env("TF_VAR_DO_SPACES_KEY", "")}"
-  spaces_secret_key = "${get_env("TF_VAR_DO_SPACES_SECRET", "")}"
-}
-provider "vault" {
-  address = "https://vault.goldengulp.com"
-  skip_tls_verify = true
-  auth_login {
-    path = "auth/github/login"
-    parameters = {
-      token = var.pat
-    }
-  }
-}
-provider "kubernetes" {
-  load_config_file = false
-  host             = var.platform_provider.k8s_endpoint
-  token            = var.platform_provider.k8s_token
-  cluster_ca_certificate = var.platform_provider.k8s_cluster_ca_certificate_b64d
 }
 EOF
 }

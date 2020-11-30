@@ -14,6 +14,10 @@ dependency "k8s" {
   config_path = "../k8s"
 }
 
+dependency "policies" {
+  config_path = "../frost_wind_terror_policies"
+}
+
 inputs = {
   platform_provider = {
     k8s_namespace = "platform"
@@ -23,6 +27,8 @@ inputs = {
     digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   }
   claim_name = "frost-wind-terror"
+  namespace = dependency.policies.outputs.namespace
+  requests_storage_size = "50Gi"
 }
 
 generate "k8s_provider" {

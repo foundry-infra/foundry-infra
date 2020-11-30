@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry?ref=v0.0.6"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_policy?ref=v0.0.6"
 }
 
 include {
@@ -14,15 +14,8 @@ dependency "k8s" {
   config_path = "../k8s"
 }
 
-dependency "ns" {
-  config_path = "../ns"
-  mock_outputs = {
-    namespace = "platform-mock"
-  }
-}
-
-dependency "ingress_workaround_dns" {
-  config_path = "../ingress_workaround_dns"
+dependency "vault_kube" {
+  config_path = "../vault_kube"
 }
 
 inputs = {
@@ -35,30 +28,13 @@ inputs = {
   }
 
   foundry_server_name = "frost-wind-terror"
-  foundry_hostname = "foundry2.frost-wind-terror.group"
-  workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
-  issuer_name = "letsencrypt-staging"
-  values_yaml_path = "${get_terragrunt_dir()}/values.yaml"
-  claim_name = dependency.pvc.outputs.claim_name
+  vault_auth_backend_path = dependency.vault_kube.outputs.vault_auth_backend_path
 }
 
 generate "helm_provider" {
   path      = "provider.generated.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
-provider "helm" {
-  kubernetes {
-    load_config_file = false
-    host             = var.platform_provider.k8s_endpoint
-    token            = var.platform_provider.k8s_token
-    cluster_ca_certificate = var.platform_provider.k8s_cluster_ca_certificate_b64d
-  }
-}
-provider "digitalocean" {
-  token = "${get_env("TF_VAR_DO_TOKEN", "")}"
-  spaces_access_id = "${get_env("TF_VAR_DO_SPACES_KEY", "")}"
-  spaces_secret_key = "${get_env("TF_VAR_DO_SPACES_SECRET", "")}"
-}
 provider "vault" {
   address = "https://vault.goldengulp.com"
   skip_tls_verify = true

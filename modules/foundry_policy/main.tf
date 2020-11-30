@@ -15,7 +15,7 @@ locals {
 }
 
 data "vault_auth_backend" "kubernetes" {
-  path = "kubernetes/"
+  path = var.vault_auth_backend_path
 }
 
 resource "vault_policy" "policy" {

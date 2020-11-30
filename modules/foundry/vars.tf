@@ -15,3 +15,6 @@ variable "issuer_name" {}
 variable "values_yaml_path" {}
 variable "claim_name" {}
 variable "pat" {}
+
+variable "namespace" {}
+variable "role_name" {}

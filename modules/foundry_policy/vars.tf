@@ -9,9 +9,7 @@ variable "platform_provider" {
 }
 
 variable "foundry_server_name" {}
-variable "foundry_hostname" {}
-variable "workaround_subdomain_name" {}
-variable "issuer_name" {}
-variable "values_yaml_path" {}
-variable "claim_name" {}
+variable "vault_auth_backend_path" {
+  default = "kubernetes/"
+}
 variable "pat" {}
