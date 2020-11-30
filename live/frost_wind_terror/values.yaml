@@ -1,11 +1,13 @@
 podAnnotations:
+  vault.hashicorp.com/agent-inject-secret-config.json: "foundry/data/frost-wind-terror/config"
   vault.hashicorp.com/agent-inject-template-config.json: |
     {{- with secret "foundry/data/frost-wind-terror/config" -}}
     {
       "foundry_admin_key": "{{ .Data.data.FOUNDRY_ADMIN_KEY }}",
       "foundry_license_key": "{{ .Data.data.FOUNDRY_LICENSE_KEY }}",
       "foundry_password": "{{ .Data.data.FOUNDRY_PASSWORD }}",
-      "foundry_username ": "{{ .Data.data.FOUNDRY_USERNAME }}"
+      "foundry_username": "{{ .Data.data.FOUNDRY_USERNAME }}"
     }
     {{- end -}}
-  vault.hashicorp.com/agent-inject-secret-config.json: /var/run
+  vault.hashicorp.com/secret-volume-path-config.json: /run/secrets/
+  vault.hashicorp.com/agent-inject-file-config.json: config.json
