@@ -1,10 +1,12 @@
-variable "k8s_namespace" {}
-
-variable "k8s_endpoint" {}
-
-variable "k8s_token" {}
-
-variable "k8s_cluster_ca_certificate_b64d" {}
+variable "platform_provider" {
+  type = object({
+    k8s_namespace = string
+    k8s_endpoint = string
+    k8s_token = string
+    k8s_cluster_ca_certificate_b64d = string
+    digitalocean_api_token = string
+  })
+}
 
 variable "enable_vault_ui" {
   description = "controls whether to enable the UI for Vault or not"
@@ -25,11 +27,6 @@ variable "primary_hostname" {
   type        = string
   description = "hostname for self-signed certificate"
   default     = "vault-primary"
-}
-
-variable "domain" {
-  type        = string
-  description = "domain for self-signed certificate"
 }
 
 variable "initial_node_count" {
@@ -65,3 +62,7 @@ variable "dev_mode" {
 variable "workaround_subdomain_name" {}
 
 variable "tls_secret_name" {}
+
+variable "issuer_name" {}
+
+variable "vault_subdomain_name" {}

@@ -112,6 +112,8 @@ module "vault" {
   k8s_namespace = kubernetes_namespace.platform_ns.metadata.0.name
   workaround_subdomain_name = module.ingress_workaround_dns.workaround_subdomain_name
   tls_secret_name = module.vault_ui_tls.secret_name
+  issuer_name = var.vault_issuer_name
+  vault_subdomain_name = var.vault_subdomain_name
 }
 
 module "vault_gemini_backups" {
@@ -120,17 +122,5 @@ module "vault_gemini_backups" {
   k8s_endpoint = module.cluster.k8s_endpoint
   k8s_token = module.cluster.k8s_token
   k8s_namespace = kubernetes_namespace.platform_ns.metadata.0.name
-  vault_claim_name = kubernetes_namespace.platform_ns.metadata.0.name
-}
-
-module "vault_ui_ingress" {
-  source = "../vault_ui_ingress"
-  issuer_name = var.vault_issuer_name
-  k8s_cluster_ca_certificate_b64d = module.cluster.k8s_cluster_ca_certificate_b64d
-  k8s_endpoint = module.cluster.k8s_endpoint
-  k8s_namespace = kubernetes_namespace.platform_ns.metadata.0.name
-  k8s_token = module.cluster.k8s_token
-  vault_backend_service_name = module.vault.vault-ui-service-name
-  vault_backend_service_port = module.vault.vault-ui-service-port
-  vault_subdomain_name = var.vault_subdomain_name
+  vault_claim_name = "data-vault-primary-0"
 }

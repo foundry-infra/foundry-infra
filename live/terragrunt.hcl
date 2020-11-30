@@ -17,11 +17,5 @@ terraform {
   }
   required_version = "~> 0.13.4"
 }
-
-provider "digitalocean" {
-  token = "${get_env("TF_VAR_DO_TOKEN", "")}"
-  spaces_access_id = "${get_env("TF_VAR_DO_SPACES_KEY", "")}"
-  spaces_secret_key = "${get_env("TF_VAR_DO_SPACES_SECRET", "")}"
-}
 EOF
 }

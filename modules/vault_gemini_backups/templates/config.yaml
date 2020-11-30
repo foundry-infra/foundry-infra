@@ -7,5 +7,5 @@ spec:
   persistentVolumeClaim:
     claimName: "${vault_claim_name}"
   schedule:
-    - every: 10 minutes
-      keep: 3
+    - every: "day"
+      keep: 5
