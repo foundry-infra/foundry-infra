@@ -1,0 +1,93 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "foundry-vtt.fullname" . }}
+  labels:
+    {{- include "foundry-vtt.labels" . | nindent 4 }}
+spec:
+  strategy:
+    type: Recreate
+  replicas: 1
+  selector:
+    matchLabels:
+      {{- include "foundry-vtt.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+      {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "foundry-vtt.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      serviceAccountName: {{ include "foundry-vtt.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+        - name: volume-mount-permission
+          image: busybox
+          command: ["sh", "-c", "chown -R 421:421 /data "]
+          volumeMounts:
+          - name: data
+            mountPath: /data
+          resources:
+            limits:
+              cpu: 128m
+              memory: 128Mi
+      containers:
+      - name: {{ .Chart.Name }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 12 }}
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        ports:
+          - name: http
+            containerPort: 30000
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /
+            port: http
+        resources:
+          {{- toYaml .Values.resources | nindent 12 }}
+        env:
+          {{- if .Values.extraEnv }}
+{{ toYaml .Values.extraEnv | indent 10 }}
+          {{- end }}
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      {{- if eq .Values.foundryvtt.s3.awsConfig "file" }}
+        - name: secret-aws
+          mountPath: "/etc/secretaws/"
+          readOnly: true
+      {{- end }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+    {{- end }}
+      volumes:
+    {{- if eq .Values.foundryvtt.s3.awsConfig "file" }}
+      - name: secret-aws
+        secret:
+          secretName: {{ include "foundry-vtt.fullname" . }}-aws
+    {{- end }}
+      - name: data
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.claimName }}

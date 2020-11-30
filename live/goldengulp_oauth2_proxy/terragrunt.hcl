@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/vault?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_oauth2_proxy?ref=v0.0.7"
 }
 
 include {
@@ -21,12 +21,32 @@ dependency "ns" {
   }
 }
 
-dependency "vault_ui_tls" {
-  config_path = "../vault_ui_tls"
+dependency "policies" {
+  config_path = "../goldengulp_policies"
+  mock_outputs = {
+    namespace = "goldengulp_mock"
+    service_account_name = "goldengulp_mock"
+    policy_name = "goldengulp_mock"
+    role_name = "goldengulp_mock"
+  }
+}
+
+dependency "pvc" {
+  config_path = "../goldengulp_pvc"
+  mock_outputs = {
+    claim_name = "goldengulp_mock"
+  }
 }
 
 dependency "ingress_workaround_dns" {
   config_path = "../ingress_workaround_dns"
+}
+
+dependency "tls" {
+  config_path = "../goldengulp_tls"
+  mock_outputs = {
+    secret_name = "goldengulp_mock"
+  }
 }
 
 inputs = {
@@ -37,11 +57,15 @@ inputs = {
     k8s_cluster_ca_certificate_b64d = dependency.k8s.outputs.k8s_cluster_ca_certificate_b64d
     digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   }
+
+  foundry_server_name = "goldengulp"
+  foundry_hostname = "foundry2.goldengulp.com"
   workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
-  issuer_name = "letsencrypt-staging"
-  domain = "goldengulp.com"
-  tls_secret_name = dependency.vault_ui_tls.outputs.secret_name
-  vault_subdomain_name = "vault.goldengulp.com"
+  cluster_issuer_ref_name = "letsencrypt-staging"
+  values_yaml_path = "${get_terragrunt_dir()}/values.yaml"
+  namespace = dependency.policies.outputs.namespace
+  role_name = dependency.policies.outputs.role_name
+  foundry_server_tls_secret_name = dependency.tls.outputs.secret_name
 }
 
 generate "helm_provider" {

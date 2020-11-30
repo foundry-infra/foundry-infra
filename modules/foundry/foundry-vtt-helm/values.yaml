@@ -1,0 +1,139 @@
+# Default values for foundry-vtt.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# IMAGE
+# Always use a private repo to host your image.
+# Please build your image using felddy/foundryvtt-docker.
+image:
+  pullPolicy: Always
+  repository: felddy/foundryvtt-docker
+  tag: 0.6.6
+
+# Credentials for Docker private repository.
+imagePullSecrets: []
+
+# Override the default chart name
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations:
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+
+resources:
+  limits:
+    cpu: 1024m
+    memory: 1024Mi
+  requests:
+    cpu: 512m
+    memory: 512Mi
+
+service:
+  serviceType: LoadBalancer
+  port: 80
+  protocol: TCP
+  loadBalancerIP:
+  # loadBalancerSourceRanges: []
+  ## Set the externalTrafficPolicy in the Service to either Cluster or Local
+  # externalTrafficPolicy: Local
+  labels: {}
+  tls: true #Enable TLS for LoadBalancer
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-type: nlb
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+    service.beta.kubernetes.io/aws-load-balancer-cross-zone-load-balancing-enabled: "true"
+    # Required if service.tls is true.
+    service.beta.kubernetes.io/aws-load-balancer-ssl-cert: arn:aws:acm:eu-west-1:ACCOUNTID:certificate/CERTID
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "443"
+    # use external-dns to setup the domain
+    external-dns.alpha.kubernetes.io/hostname: foundry.domain.com
+    # Extra configs
+    service.beta.kubernetes.io/aws-load-balancer-additional-resource-tags: auto-delete=never
+
+persistence:
+  claimName: ""
+
+# Foundry VTT Custom configurations
+foundryvtt:
+  ###########################################
+  ### All configurations details are provided here: https://foundryvtt.com/article/hosting/
+  ### All supported environment variables can be found here: https://github.com/felddy/foundryvtt-docker/blob/develop/src/entrypoint.sh
+
+  ## Admin password. Default: admin
+  adminKey: admin
+
+  ## A custom hostname to use in place of the host machine's public IP address when displaying the address of the game session. This allows for reverse proxies or DNS servers to modify the public address.
+  hostname: "foundry.domain.com"
+
+  ## Prevent the application from being updated from the web interface.  The application code is immutable when running in a container.  See the [Updating](#updating) section for the steps needed to update this container.
+  noUpdate: true
+
+  ## Inform the Foundry Server that the software is running behind a reverse proxy on some other port. This allows the invitation links created to the game to include the correct external port.
+  #proxyPort: "80"
+
+  ## Indicates whether the software is running behind a reverse proxy that uses SSL. This allows invitation links and A/V functionality to work as if the Foundry Server had SSL configured directly.
+  proxySSL: true
+
+  # A string path which is appended to the base hostname to serve Foundry VTT content from a specific namespace. For example setting this to demo will result in data being served from http://x.x.x.x:30000/demo/.
+  #routePrefix: "/demo"
+
+  ## An absolute or relative path that points towards a SSL key/cert file which is used jointly with the sslCert option to enable SSL and https connections. If both options are provided, the server will start using HTTPS automatically.
+  #sslCert: null
+  #sslKey: null
+
+  ## The update channel to subscribe to. "alpha", "beta", or "release".
+  updateChannel: release
+
+  ## Allow Universal Plug and Play to automatically request port forwarding for the Foundry VTT port to your local network address. Default is true.
+  upnp: false
+
+  ## The world startup at system start.
+  world: ""
+
+  ## Credentials for generate the [awsConfig.json](https://foundryvtt.com/article/aws-s3/) or `true` for AWS environment variable [credentials evaluation](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html) usage.
+  s3:
+    awsConfig: "false"
+    # To use the inline credentials and generate "awsConfig.json" use: awsConfig: file
+    # aws_region: eu-west-1
+    # aws_access_key_id: *************
+    # aws_secret_access_key: *************
+
+############################################
+# tls
+#   Where to offload the TLS/SSL encryption
+# - ingress (default)
+# - external
+tls: external
+
+ingress:
+  enabled: false
+  annotations: {}
+  # kubernetes.io/ingress.class: nginx
+  # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+### secret config ###
+selfsigned: {}
+certmanager:
+  version: ""
+
+podSecurityContext: {}
+securityContext: {}
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+extraEnv: {}
+
+podAnnotations: {}

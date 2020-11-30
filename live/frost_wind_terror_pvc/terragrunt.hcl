@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/ingress?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_pvc?ref=v0.0.7"
 }
 
 include {
@@ -14,16 +14,8 @@ dependency "k8s" {
   config_path = "../k8s"
 }
 
-dependency "ns" {
-  config_path = "../ns"
-  mock_outputs = {
-    namespace = "platform-mock"
-  }
-}
-
-dependency "cert_manager" {
-  config_path = "../cert_manager"
-  mock_outputs = {}
+dependency "policies" {
+  config_path = "../frost_wind_terror_policies"
 }
 
 inputs = {
@@ -34,20 +26,15 @@ inputs = {
     k8s_cluster_ca_certificate_b64d = dependency.k8s.outputs.k8s_cluster_ca_certificate_b64d
     digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   }
+  claim_name = "frost-wind-terror"
+  namespace = dependency.policies.outputs.namespace
+  requests_storage_size = "50Gi"
 }
 
-generate "helm_provider" {
+generate "k8s_provider" {
   path      = "provider.generated.tf"
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
-provider "helm" {
-  kubernetes {
-    load_config_file = false
-    host             = var.platform_provider.k8s_endpoint
-    token            = var.platform_provider.k8s_token
-    cluster_ca_certificate = var.platform_provider.k8s_cluster_ca_certificate_b64d
-  }
-}
 provider "kubernetes" {
   load_config_file = false
   host             = var.platform_provider.k8s_endpoint
