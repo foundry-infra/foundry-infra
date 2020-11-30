@@ -1,12 +1,11 @@
 podAnnotations:
-  vault.hashicorp.com/agent-inject-template-override-config: |
+  vault.hashicorp.com/agent-inject-template-config.json: |
     {{- with secret "foundry/data/frost-wind-terror/config" -}}
-    export FOUNDRY_ADMIN_KEY="{{ .Data.data.FOUNDRY_ADMIN_KEY }}"
-    export FOUNDRY_AWS_CONFIG="{{ .Data.data.FOUNDRY_AWS_CONFIG }}"
-    export FOUNDRY_HOSTNAME="{{ .Data.data.FOUNDRY_HOSTNAME }}"
-    export FOUNDRY_LICENSE_KEY="{{ .Data.data.FOUNDRY_LICENSE_KEY }}"
-    export FOUNDRY_PASSWORD="{{ .Data.data.FOUNDRY_PASSWORD }}"
-    export FOUNDRY_PROXY_PORT="{{ .Data.data.FOUNDRY_PROXY_PORT }}"
-    export FOUNDRY_PROXY_SSL="{{ .Data.data.FOUNDRY_PROXY_SSL }}"
-    export FOUNDRY_USERNAME="{{ .Data.data.FOUNDRY_USERNAME }}"
+    {
+      "foundry_admin_key": "{{ .Data.data.FOUNDRY_ADMIN_KEY }}",
+      "foundry_license_key": "{{ .Data.data.FOUNDRY_LICENSE_KEY }}",
+      "foundry_password": "{{ .Data.data.FOUNDRY_PASSWORD }}",
+      "foundry_username ": "{{ .Data.data.FOUNDRY_USERNAME }}"
+    }
     {{- end -}}
+  vault.hashicorp.com/agent-inject-secret-config.json: /var/run

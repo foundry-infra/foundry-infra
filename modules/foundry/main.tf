@@ -10,6 +10,10 @@ terraform {
     vault = {
       source = "hashicorp/vault"
     }
+    kubernetes = {
+      source  = "hashicorp/kubernetes"
+      version = ">= 1.7.0"
+    }
   }
 }
 
@@ -53,12 +57,20 @@ resource "helm_release" "foundry" {
       vault_role_name = vault_kubernetes_auth_backend_role.role.role_name,
       hostname = var.foundry_hostname
       foundry_server_name = var.foundry_server_name
+      claim_name = var.claim_name
+    }),
+    templatefile(var.values_yaml_path, {
+      issuer_name = var.issuer_name,
+      service_account_name = local.service_account_name,
+      workaround_subdomain_name = var.workaround_subdomain_name,
+      vault_role_name = vault_kubernetes_auth_backend_role.role.role_name,
+      hostname = var.foundry_hostname
+      foundry_server_name = var.foundry_server_name
     })
   ]
 }
 
 resource "kubernetes_namespace" "ns" {
-  provider = kubernetes
   metadata {
     name = var.foundry_server_name
   }

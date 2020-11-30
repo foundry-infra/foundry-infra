@@ -8,10 +8,8 @@ variable "platform_provider" {
   })
 }
 
-variable "foundry_server_name" {}
-variable "foundry_hostname" {}
-variable "workaround_subdomain_name" {}
-variable "issuer_name" {}
-variable "values_yaml_path" {}
-variable "claim_name" {}
-variable "pat" {}
+variable claim_name {}
+variable requests_storage_size {
+  default = "5Gi"
+}
+variable "namespace" {}

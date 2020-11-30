@@ -43,7 +43,7 @@ podAnnotations:
   vault.hashicorp.com/tls-skip-verify: "true"
 
 persistence:
-  claimName: ${foundry_server_name}
+  claimName: ${claim_name}
   size_gbs: "100Gi"
 
 resources:

@@ -21,10 +21,6 @@ dependency "ns" {
   }
 }
 
-dependency "pvc" {
-  config_path = "../frost_wind_terror_pvc"
-}
-
 dependency "ingress_workaround_dns" {
   config_path = "../ingress_workaround_dns"
 }
