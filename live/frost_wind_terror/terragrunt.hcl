@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry?ref=v0.0.6"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry?ref=v0.0.6-rc1"
 }
 
 include {
@@ -48,6 +48,8 @@ inputs = {
   issuer_name = "letsencrypt-staging"
   values_yaml_path = "${get_terragrunt_dir()}/values.yaml"
   claim_name = dependency.pvc.outputs.claim_name
+  namespace = dependency.policies.outputs.namespace
+  role_name = dependency.policies.outputs.role_name
 }
 
 generate "helm_provider" {

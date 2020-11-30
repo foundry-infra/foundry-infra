@@ -13,14 +13,15 @@ locals {
 resource "helm_release" "foundry" {
   name = var.foundry_server_name
   chart = "./foundry-vtt-helm"
-  namespace = var.namespace # kubernetes_namespace.ns.metadata.0.name
+  namespace = var.namespace
 
   values = [
     templatefile("${path.module}/templates/values.tmpl", {
       issuer_name = var.issuer_name,
       service_account_name = local.service_account_name,
       workaround_subdomain_name = var.workaround_subdomain_name,
-      vault_role_name = var.role_name # vault_kubernetes_auth_backend_role.role.role_name,
+      vault_role_name = var.role_name
+      claim_name = var.claim_name
       hostname = var.foundry_hostname
       foundry_server_name = var.foundry_server_name
     }),
@@ -28,7 +29,8 @@ resource "helm_release" "foundry" {
       issuer_name = var.issuer_name,
       service_account_name = local.service_account_name,
       workaround_subdomain_name = var.workaround_subdomain_name,
-      vault_role_name = var.role_name # vault_kubernetes_auth_backend_role.role.role_name,
+      vault_role_name = var.role_name
+      claim_name = var.claim_name
       hostname = var.foundry_hostname
       foundry_server_name = var.foundry_server_name
     })

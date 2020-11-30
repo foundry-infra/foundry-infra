@@ -13,8 +13,7 @@ variable "foundry_hostname" {}
 variable "workaround_subdomain_name" {}
 variable "issuer_name" {}
 variable "values_yaml_path" {}
-variable "claim_name" {}
 variable "pat" {}
-
+variable "claim_name" {}
 variable "namespace" {}
 variable "role_name" {}
