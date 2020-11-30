@@ -11,3 +11,13 @@ podAnnotations:
     {{- end -}}
   vault.hashicorp.com/secret-volume-path-config.json: /run/secrets/
   vault.hashicorp.com/agent-inject-file-config.json: config.json
+
+extraEnv:
+  - name: "FOUNDRY_AWS_CONFIG"
+    value: "awsConfig.json"
+  - name: "FOUNDRY_HOSTNAME"
+    value: "foundry2.frost-wind-terror.group"
+  - name: "FOUNDRY_PROXY_PORT"
+    value: "443"
+  - name: "FOUNDRY_PROXY_SSL"
+    value: "true"

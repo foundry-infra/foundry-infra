@@ -17,7 +17,7 @@ ingress:
       paths:
         - /
   tls:
-    - secretName: ${foundry_server_name}-tls
+    - secretName: ${foundry_server_tls_secret_name}
       hosts:
         - ${hostname}
   annotations:

@@ -24,6 +24,7 @@ resource "helm_release" "foundry" {
       claim_name = var.claim_name
       hostname = var.foundry_hostname
       foundry_server_name = var.foundry_server_name
+      foundry_server_tls_secret_name = var.foundry_server_tls_secret_name
     }),
     templatefile(var.values_yaml_path, {
       issuer_name = var.issuer_name,
@@ -33,6 +34,7 @@ resource "helm_release" "foundry" {
       claim_name = var.claim_name
       hostname = var.foundry_hostname
       foundry_server_name = var.foundry_server_name
+      foundry_server_tls_secret_name = var.foundry_server_tls_secret_name
     })
   ]
 }

@@ -59,55 +59,6 @@ spec:
         resources:
           {{- toYaml .Values.resources | nindent 12 }}
         env:
-          - name: FOUNDRY_ADMIN_KEY
-            value: {{ (default "admin" .Values.foundryvtt.adminKey) | quote }}
-          {{- if .Values.foundryvtt.upnp }}
-          - name: FOUNDRY_UPNP
-            value: {{ .Values.foundryvtt.upnp }}
-          {{- end }}
-          {{ if .Values.foundryvtt.hostname }}
-          - name: FOUNDRY_HOSTNAME
-            value: {{ .Values.foundryvtt.hostname }}
-          {{ end }}
-          {{ if .Values.foundryvtt.noUpdate }}
-          - name: FOUNDRY_NO_UPDATE
-            value: {{ .Values.foundryvtt.noUpdate | quote}}
-          {{ end }}
-          {{ if .Values.foundryvtt.routePrefix }}
-          - name: FOUNDRY_ROUTE_PREFIX
-            value: {{ .Values.foundryvtt.routePrefix }}
-          {{ end }}
-          {{ if .Values.foundryvtt.sslCert }}
-          - name: FOUNDRY_SSL_CERT∂
-            value: {{ .Values.foundryvtt.sslCert }}
-          {{ end }}
-          {{ if .Values.foundryvtt.sslKey }}
-          - name: FOUNDRY_SSL_KEY
-            value: {{ .Values.foundryvtt.sslKey }}
-          {{ end }}
-          {{ if .Values.foundryvtt.proxyPort }}
-          - name: FOUNDRY_PROXY_PORT
-            value: {{ .Values.foundryvtt.proxyPort | quote }}
-          {{ end }}
-          {{ if .Values.foundryvtt.proxySSL }}
-          - name: FOUNDRY_PROXY_SSL
-            value: {{ .Values.foundryvtt.proxySSL | quote }}
-          {{ end }}
-          {{- if eq .Values.foundryvtt.s3.awsConfig "true" -}}
-          - name: FOUNDRY_AWS_CONFIG
-            value: "true"
-          {{- else if eq .Values.foundryvtt.s3.awsConfig "file" -}}
-          - name: FOUNDRY_AWS_CONFIG
-            value: "/etc/secretaws/aws-credentials.json"
-          {{- end }}
-          {{ if .Values.foundryvtt.updateChannel }}
-          - name: FOUNDRY_UPDATE_CHANNEL
-            value: {{ .Values.foundryvtt.updateChannel }}
-          {{ end }}
-          {{ if .Values.foundryvtt.world }}
-          - name: FOUNDRY_WORLD
-            value: {{ .Values.foundryvtt.world | quote }}
-          {{ end }}
           {{- if .Values.extraEnv }}
 {{ toYaml .Values.extraEnv | indent 10 }}
           {{- end }}

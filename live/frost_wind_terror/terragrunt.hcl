@@ -33,6 +33,10 @@ dependency "ingress_workaround_dns" {
   config_path = "../ingress_workaround_dns"
 }
 
+dependency "tls" {
+  config_path = "../frost_wind_terror_tls"
+}
+
 inputs = {
   platform_provider = {
     k8s_namespace = "platform"
@@ -50,6 +54,7 @@ inputs = {
   claim_name = dependency.pvc.outputs.claim_name
   namespace = dependency.policies.outputs.namespace
   role_name = dependency.policies.outputs.role_name
+  foundry_server_tls_secret_name = dependency.tls.outputs.secret_name
 }
 
 generate "helm_provider" {

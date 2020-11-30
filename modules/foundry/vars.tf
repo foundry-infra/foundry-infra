@@ -17,3 +17,4 @@ variable "pat" {}
 variable "claim_name" {}
 variable "namespace" {}
 variable "role_name" {}
+variable "foundry_server_tls_secret_name" {}
