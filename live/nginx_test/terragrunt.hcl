@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/nginx_test?ref=v0.0.5"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/nginx_test?ref=v0.0.6"
 }
 
 include {

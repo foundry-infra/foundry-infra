@@ -6,3 +6,9 @@ secrets.txt
 .idea/
 .terragrunt-cache/
 .env
+
+modules/foundry/foundry.values.yaml
+
+modules/foundry/oauth2_proxy.values.yaml
+
+modules/foundry/main.old.tf

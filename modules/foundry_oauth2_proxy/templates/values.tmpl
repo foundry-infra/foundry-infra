@@ -1,0 +1,37 @@
+---
+serviceAccount:
+  enabled: true
+  name: ${service_account_name}
+
+service:
+  port: 4180
+  serviceType: ClusterIP
+  annotations:
+    service.beta.kubernetes.io/do-loadbalancer-hostname: ${workaround_subdomain_name}
+
+podAnnotations:
+  vault.hashicorp.com/agent-inject: "true"
+  vault.hashicorp.com/role: "${vault_role_name}"
+  vault.hashicorp.com/tls-skip-verify: "true"
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1000Mi
+  requests:
+    cpu: 300m
+    memory: 300Mi
+
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    cert-manager.io/cluster-issuer: ${cluster_issuer_ref_name}
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
+  path: '/oauth2'
+  hosts:
+    - "${foundry_hostname}"
+  tls:
+    - hosts:
+        - "${foundry_hostname}"
+      secretName: "${foundry_server_tls_secret_name}"
