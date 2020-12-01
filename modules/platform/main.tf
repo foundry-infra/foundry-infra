@@ -100,7 +100,7 @@ module "vault_ui_tls" {
   k8s_token = module.cluster.k8s_token
   k8s_namespace = kubernetes_namespace.platform_ns.metadata.0.name
   root_domain_name = "goldengulp.com"
-  subdomain_name = "vault.goldengulp.com"
+  subdomain_name = "secrets.of.goldengulp.com"
 }
 
 module "vault" {

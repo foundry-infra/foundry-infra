@@ -41,7 +41,7 @@ inputs = {
   issuer_name = "letsencrypt-staging"
   domain = "goldengulp.com"
   tls_secret_name = dependency.vault_ui_tls.outputs.secret_name
-  vault_subdomain_name = "vault.goldengulp.com"
+  vault_subdomain_name = "secrets.of.goldengulp.com"
 }
 
 generate "helm_provider" {

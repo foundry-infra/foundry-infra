@@ -19,7 +19,7 @@ generate "vault_provider" {
   if_exists = "overwrite_terragrunt"
   contents = <<EOF
 provider "vault" {
-  address = "https://vault.goldengulp.com"
+  address = "https://secrets.of.goldengulp.com"
   skip_tls_verify = true
   auth_login {
     path = "auth/github/login"
