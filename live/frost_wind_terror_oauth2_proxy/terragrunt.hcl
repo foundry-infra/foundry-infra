@@ -47,7 +47,7 @@ inputs = {
   }
 
   foundry_server_name = "frost-wind-terror"
-  foundry_hostname = "foundry2.frost-wind-terror.group"
+  foundry_hostname = "foundry.frost-wind-terror.group"
   workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
   cluster_issuer_ref_name = "letsencrypt-staging"
   values_yaml_path = "${get_terragrunt_dir()}/values.yaml"

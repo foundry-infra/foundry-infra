@@ -16,7 +16,7 @@ extraEnv:
   - name: "FOUNDRY_AWS_CONFIG"
     value: "awsConfig.json"
   - name: "FOUNDRY_HOSTNAME"
-    value: "foundry2.frost-wind-terror.group"
+    value: "foundry.frost-wind-terror.group"
   - name: "FOUNDRY_PROXY_PORT"
     value: "443"
   - name: "FOUNDRY_PROXY_SSL"
