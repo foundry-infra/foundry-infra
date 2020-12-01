@@ -4,33 +4,16 @@
   "description": "Running a secure, private cloud on kubernetes should be easy.",
   "main": "index.js",
   "scripts": {
-    "init-platform-local": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt init --terragrunt-source ../../../modules//platform",
-    "plan-platform-local": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt plan --terragrunt-source ../../../modules//platform",
-    "apply-platform-local": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt apply -auto-approve --terragrunt-source ../../../modules//platform",
-
-    "init-platform": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt init",
-    "plan-platform": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt plan",
-    "apply-platform": "cd live/platform/instance && env-cmd -f ../../../.env terragrunt apply -auto-approve",
-    "state-pull-platform" : "cd live/platform/instance && env-cmd -f ../../../.env terragrunt state pull",
-
-    "init-dev-nginx-test-local": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt init --terragrunt-source ../../..//modules/nginx_test",
-    "plan-nginx-test-local": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt plan --terragrunt-source ../../..//modules/nginx_test",
-    "apply-nginx-test-local": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt apply -auto-approve --terragrunt-source ../../..//modules/nginx_test",
-    "destroy-nginx-test-local": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt destroy -auto-approve --terragrunt-source ../../..//modules/nginx_test",
-
-    "init-dev-nginx-test": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt init",
-    "plan-nginx-test": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt plan",
-    "apply-nginx-test": "cd live/platform/nginx_test && env-cmd -f ../../../.env terragrunt apply -auto-approve",
-
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "plan-all": "cd live && env-cmd -f ../../.env terragrunt plan-all",
+    "apply-all": "cd live && env-cmd -f ../../.env terragrunt apply-all",
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/foundry-infra/foundry-infra.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "mackenzie.a.z.c@gmail.com",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/foundry-infra/foundry-infra/issues"
   },

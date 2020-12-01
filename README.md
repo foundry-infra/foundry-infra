@@ -1,59 +1,44 @@
-# what is the problem this project solves?
+# foundry-infra
 
-Running a secure, private cloud on kubernetes should be easy. 
+_An expensive way to run Foundry-VTT._
 
-Requirements:
-- low cost
-- kubernetes, terraform, vault
-- minimal external secrets required
+This project is my own personal cloud infrastructure for running my Foundry-VTT games. It also includes a batteries-included app platform.
 
-Anti-requirements:
-- high availability
-- advanced traffic routing and shaping
-- high security
+## Implementation Notes
 
+This repo is mostly Terragrunt (modules and infras) with a single enviroment, and takes great advantage of dependencies. 
+A few convenient dev dependencies install with npm. 
+This infra is (almost) built exclusively on DigitalOcean. 
+A single multi-tenant [DOK cluster][dok] runs all workloads. 
+The cluster currently runs two ["tenant"][goldengulp] Foundry-VTT instances, and and a whole-lot of platform components. 
+Each app has subdomain domain that is [managed with ExternalDNS][external_dns]. 
+The load balancer terminates TLS at the [kubernetes-nginx-ingress controller][ingress]. 
+The certificates themselves are auto-rotated with [Cert-Manager][cert_manager]. 
+The one exception is the [HashiCorp Vault][vault] server which does SSL-passthrough and terminates its own TLS. 
+The workloads have secrets automatically injected by Vault using the sidecar init container. 
+Additionally, each instance runs with an [oauth2-proxy][oauth2_proxy] configured to only allow certain users (my players!) all via an external OIDC provider (currently Auth0).   
 
-# storage backbone
+## Todos
 
-The primary platform data includes:
-- tfstates
-- secrets (vault backend)
+- [ ] Migrate off of Auth0 and onto a self-hosted Keycloak
+- [ ] Create Gemini backups for the Foundry-VTT instances
+- [ ] Add the awsconfig.json secret to Foundry-VTT instances
+- [ ] Setup GitHub auth on Vault in new terraform module
+- [ ] The Foundry Helm chart needs a lot of love and tidying
+- [ ] DRY up the Foundry-VTT modules, there are many modules
+- [ ] DRY up the app platform, there are many modules
 
-These needs can be met by the highly available object storage solution (e.g. DO Spaces). All terraform states go into one bucket that is the seed bucket. Use nested directories to separate state. Vault can technically live in the same bucket. 
+## Attributions
 
-## seed
+- Would not have gotten started on Foundry-VTT self-hosting if not for [Felddy docker project][felddy_docker]. Much appreciated @felddy.
+- I was able to get going on Kubernetes by building on top of [hugoprudente's helm chart][hugoprudente]. Thanks @hugoprudente. 
 
-The initial seed of this infrastructure is the manual creation of the storage of the control plane bucket that will contain state for all additional buckets. 
-
-## all the buckets
-
-All buckets will be managed in terraform, and will be a hard dependency in some way. This includes terraform state files and vault secrets.
-
-# Components
-
-Each component has a dedicated state stored in the main state bucket. This means each component needs the S3 access key and secret for the bucket, in addition to an personal access token for managing other resources. 
-
-## platform-k8s
-
-`platform-k8s` creates the kubernetes cluster.
-
-## platform-vault
-
-`platform-vault` installs vault in the kubernetes cluster.
- 
-# service infrastructure 
-
-In this approach, all workloads deploy and all network rules apply to one service infrastructure runtime: kubernetes. 
-
-`k8s` cluster is single-point-of-failure for availability and security.
-
-The cluster is provisioned with dedicated tfstate and is a hard data dependency in applications.
-
-# the secret store
-
-Vault runs on kubernetes and is deployed with dedicated tfstate and is a hard data dependency in applications. 
-
-# applications
-
-applications run in dedicated namespace tfstates. The k8s cluster and the vault store are always prerequisites to these modules.
-
+[oauth2_proxy]: /live/frost_wind_terror_oauth2_proxy
+[vault]: /live/vault
+[cert_manager]: /live/cert_manager
+[ingress]: /live/ingress
+[goldengulp]: /live/goldengulp
+[dok]: /live/k8s
+[external_dns]: /live/external_dns
+[felddy_docker]: https://github.com/felddy/foundryvtt-docker
+[hugoprudente]: https://github.com/hugoprudente/foundry-vtt

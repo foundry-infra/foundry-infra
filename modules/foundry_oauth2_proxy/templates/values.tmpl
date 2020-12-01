@@ -28,6 +28,7 @@ ingress:
     kubernetes.io/tls-acme: "true"
     cert-manager.io/cluster-issuer: ${cluster_issuer_ref_name}
     nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    kubernetes.io/ingress.class: nginx
   path: '/oauth2'
   hosts:
     - "${foundry_hostname}"

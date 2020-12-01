@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_oauth2_proxy?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/foundry_oauth2_proxy?ref=v0.0.8"
 }
 
 include {
@@ -47,9 +47,9 @@ inputs = {
   }
 
   foundry_server_name = "frost-wind-terror"
-  foundry_hostname = "foundry2.frost-wind-terror.group"
+  foundry_hostname = "foundry.frost-wind-terror.group"
   workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
-  cluster_issuer_ref_name = "letsencrypt-staging"
+  cluster_issuer_ref_name = "letsencrypt-prod"
   values_yaml_path = "${get_terragrunt_dir()}/values.yaml"
   namespace = dependency.policies.outputs.namespace
   role_name = dependency.policies.outputs.role_name

@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/ingress_workaround_dns?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/ingress_workaround_dns?ref=v0.0.8"
 }
 
 include {

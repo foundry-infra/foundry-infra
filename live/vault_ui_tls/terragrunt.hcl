@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/vault_ui_tls?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/vault_ui_tls?ref=v0.0.8"
 }
 
 include {
@@ -33,9 +33,9 @@ inputs = {
     k8s_cluster_ca_certificate_b64d = dependency.k8s.outputs.k8s_cluster_ca_certificate_b64d
     digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   }
-  cluster_issuer_ref_name  = "letsencrypt-staging"
+  cluster_issuer_ref_name  = "letsencrypt-prod"
   root_domain_name = "goldengulp.com"
-  subdomain_name = "vault.goldengulp.com"
+  subdomain_name = "secrets.of.goldengulp.com"
 }
 
 generate "k8s_provider" {

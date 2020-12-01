@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/nginx_test?ref=v0.0.7"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/nginx_test?ref=v0.0.8"
 }
 
 include {
@@ -33,6 +33,6 @@ inputs = {
   digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   hostname = "nginx.goldengulp.com"
   workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
-  issuer_name = "letsencrypt-staging"
+  issuer_name = "letsencrypt-prod"
   login_username = "xmclark"
 }
