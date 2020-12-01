@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/k8s?ref=v0.0.8-rc1"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/k8s?ref=v0.0.8-rc3"
 }
 
 include {

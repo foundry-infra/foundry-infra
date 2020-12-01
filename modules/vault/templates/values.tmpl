@@ -29,8 +29,6 @@ server:
   ingress:
     enabled: true
     annotations:
-      cert-manager.io/cluster-issuer: ${issuer_name}
-      kubernetes.io/tls-acme: 'true'
       kubernetes.io/ingress.allow-http: "false"
       kubernetes.io/ingress.class: "nginx"
       nginx.ingress.kubernetes.io/force-ssl-redirect: "true"
@@ -52,6 +50,7 @@ server:
     raft:
       enabled: true
       config: |
+        disable_mlock = true
         ui = ${enable_vault_ui}
         listener "tcp" {
           tls_disable     = "${tls_disable}"

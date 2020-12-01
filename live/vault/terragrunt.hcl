@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/vault?ref=v0.0.8-rc1"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/vault?ref=v0.0.8-rc3"
 }
 
 include {
@@ -17,7 +17,7 @@ dependency "k8s" {
 dependency "ns" {
   config_path = "../ns"
   mock_outputs = {
-    namespace = "platform-mock"
+    namespace = "platform-mock-namespace"
   }
 }
 
@@ -38,7 +38,7 @@ inputs = {
     digitalocean_api_token = "${get_env("TF_VAR_DO_TOKEN", "")}"
   }
   workaround_subdomain_name = dependency.ingress_workaround_dns.outputs.workaround_subdomain_name
-  issuer_name = "letsencrypt-staging"
+  issuer_name = "letsencrypt-prod"
   domain = "goldengulp.com"
   tls_secret_name = dependency.vault_ui_tls.outputs.secret_name
   vault_subdomain_name = "secrets.of.goldengulp.com"
