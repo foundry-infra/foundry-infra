@@ -12,12 +12,29 @@ podAnnotations:
   vault.hashicorp.com/secret-volume-path-config.json: /run/secrets/
   vault.hashicorp.com/agent-inject-file-config.json: config.json
 
+  vault.hashicorp.com/agent-inject-secret-awsConfig.json: "foundry/data/goldengulp/config"
+  vault.hashicorp.com/agent-inject-template-awsConfig.json: |
+    {{- with secret "foundry/data/goldengulp/config" -}}
+    {
+      "accessKeyId":"{{ .Data.data.AWS_ACCESS_KEY_ID }}",
+      "secretAccessKey":"{{ .Data.data.AWS_SECRET_ACCESS_KEY }}",
+      "region":"sfo2",
+      "endpoint":"sfo2.digitaloceanspaces.com"
+    }
+    {{- end -}}
+  vault.hashicorp.com/secret-volume-path-awsConfig.jso: /run/secrets/
+  vault.hashicorp.com/agent-inject-file-awsConfig.json: awsConfig.json
+
 extraEnv:
   - name: "FOUNDRY_AWS_CONFIG"
-    value: "awsConfig.json"
+    value: "/vault/secrets/awsConfig.json"
   - name: "FOUNDRY_HOSTNAME"
     value: "foundry.goldengulp.com"
   - name: "FOUNDRY_PROXY_PORT"
     value: "443"
   - name: "FOUNDRY_PROXY_SSL"
     value: "true"
+
+ingress:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 100m
