@@ -1,3 +1,6 @@
+image:
+  tag: 0.7.7
+
 podAnnotations:
   vault.hashicorp.com/agent-inject-secret-config.json: "foundry/data/frost-wind-terror/config"
   vault.hashicorp.com/agent-inject-template-config.json: |
@@ -12,9 +15,22 @@ podAnnotations:
   vault.hashicorp.com/secret-volume-path-config.json: /run/secrets/
   vault.hashicorp.com/agent-inject-file-config.json: config.json
 
+  vault.hashicorp.com/agent-inject-secret-awsConfig.json: "foundry/data/frost-wind-terror/config"
+  vault.hashicorp.com/agent-inject-template-awsConfig.json: |
+    {{- with secret "foundry/data/frost-wind-terror/config" -}}
+    {
+      "accessKeyId":"{{ .Data.data.AWS_ACCESS_KEY_ID }}",
+      "secretAccessKey":"{{ .Data.data.AWS_SECRET_ACCESS_KEY }}",
+      "region":"sfo2",
+      "endpoint":"sfo2.digitaloceanspaces.com"
+    }
+    {{- end -}}
+  vault.hashicorp.com/secret-volume-path-awsConfig.json: /run/secrets/
+  vault.hashicorp.com/agent-inject-file-awsConfig.json: awsConfig.json
+
 extraEnv:
   - name: "FOUNDRY_AWS_CONFIG"
-    value: "awsConfig.json"
+    value: "/run/secrets/awsConfig.json"
   - name: "FOUNDRY_HOSTNAME"
     value: "foundry.frost-wind-terror.group"
   - name: "FOUNDRY_PROXY_PORT"

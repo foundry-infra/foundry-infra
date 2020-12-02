@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/cert_manager_cluster_issuer?ref=v0.0.8"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/cert_manager_cluster_issuer?ref=v0.0.9"
 }
 
 dependency "k8s" {
