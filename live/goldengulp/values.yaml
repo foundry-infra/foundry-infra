@@ -22,7 +22,7 @@ podAnnotations:
       "endpoint":"sfo2.digitaloceanspaces.com"
     }
     {{- end -}}
-  vault.hashicorp.com/secret-volume-path-awsConfig.jso: /run/secrets/
+  vault.hashicorp.com/secret-volume-path-awsConfig.json: /run/secrets/
   vault.hashicorp.com/agent-inject-file-awsConfig.json: awsConfig.json
 
 extraEnv:
@@ -34,7 +34,3 @@ extraEnv:
     value: "443"
   - name: "FOUNDRY_PROXY_SSL"
     value: "true"
-
-ingress:
-  annotations:
-    nginx.ingress.kubernetes.io/proxy-body-size: 100m
