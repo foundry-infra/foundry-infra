@@ -31,13 +31,6 @@ dependency "policies" {
   }
 }
 
-dependency "pvc" {
-  config_path = "../goldengulp_pvc"
-  mock_outputs = {
-    claim_name = "goldengulp_mock"
-  }
-}
-
 dependency "ingress_workaround_dns" {
   config_path = "../ingress_workaround_dns"
 }
