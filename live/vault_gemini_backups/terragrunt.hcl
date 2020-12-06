@@ -68,4 +68,3 @@ provider "kubernetes" {
 }
 EOF
 }
-

@@ -1,0 +1,11 @@
+apiVersion: gemini.fairwinds.com/v1beta1
+kind: SnapshotGroup
+metadata:
+  name: ${name}
+  namespace: ${namespace}
+spec:
+  persistentVolumeClaim:
+    claimName: "${pvc_name}"
+  schedule:
+    - every: "day"
+      keep: 5
