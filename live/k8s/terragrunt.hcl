@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/k8s?ref=v0.0.9"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/k8s?ref=v0.0.11"
 }
 
 include {
@@ -19,6 +19,7 @@ inputs = {
   cluster_name = "ruste-dev-apps"
   vpc_uuid = dependency.vpc.outputs.vpc_uuid
   vpc_region = local.env_vars.locals.do_region
+  node_count = 2
 }
 
 generate "do_provider" {
