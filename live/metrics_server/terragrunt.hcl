@@ -14,16 +14,9 @@ dependency "k8s" {
   config_path = "../k8s"
 }
 
-dependency "ns" {
-  config_path = "../ns"
-  mock_outputs = {
-    namespace = "platform-mock"
-  }
-}
-
 inputs = {
   platform_provider = {
-    k8s_namespace = "platform"
+    k8s_namespace = "kube-system"
     k8s_endpoint = dependency.k8s.outputs.k8s_endpoint
     k8s_token = dependency.k8s.outputs.k8s_token
     k8s_cluster_ca_certificate_b64d = dependency.k8s.outputs.k8s_cluster_ca_certificate_b64d
