@@ -22,10 +22,10 @@ extraEnv:
 
 resources:
   limits:
-    cpu: 500m
-    memory: 500Mi
+    cpu: 100m
+    memory: 256Mi
   requests:
-    cpu: 50m
+    cpu: 20m
     memory: 50Mi
 
 extraArgs: {

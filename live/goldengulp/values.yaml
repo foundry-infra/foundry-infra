@@ -39,3 +39,11 @@ extraEnv:
     value: "true"
   - name: "FOUNDRY_MINIFY_STATIC_FILES"
     value: "true"
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 512Mi
+  requests:
+    cpu: 50m
+    memory: 128Mi
