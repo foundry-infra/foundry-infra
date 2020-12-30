@@ -15,3 +15,7 @@ variable "vpc_uuid" {
   type = string
   description = "DigitalOcean VPC UUID"
 }
+
+variable "node_count" {
+  type = number
+}
