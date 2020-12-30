@@ -1,5 +1,5 @@
 terraform {
-  source = "git@github.com:foundry-infra/foundry-infra.git//modules/metrics_server?ref=v0.0.12"
+  source = "git@github.com:foundry-infra/foundry-infra.git//modules/metrics_server?ref=v0.0.13"
 }
 
 include {
@@ -21,6 +21,7 @@ inputs = {
     k8s_token = dependency.k8s.outputs.k8s_token
     k8s_cluster_ca_certificate_b64d = dependency.k8s.outputs.k8s_cluster_ca_certificate_b64d
   }
+  values_yaml_path = "${get_terragrunt_dir()}/values.yaml"
 }
 
 generate "helm_provider" {

@@ -1,0 +1,2 @@
+extraArgs:
+  kubelet-preferred-address-types: InternalIP
