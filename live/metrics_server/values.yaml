@@ -1,2 +1,6 @@
 extraArgs:
   kubelet-preferred-address-types: InternalIP
+  kubelet-insecure-tls: true
+# https://github.com/kubernetes-sigs/metrics-server/issues/247#issuecomment-734784752
+apiService:
+  create: true
