@@ -1,5 +1,5 @@
 image:
-  tag: 0.7.9
+  tag: 0.7.8
 
 podAnnotations:
   vault.hashicorp.com/agent-inject-secret-config.json: "foundry/data/goldengulp/config"
@@ -42,8 +42,8 @@ extraEnv:
 
 resources:
   limits:
-    cpu: 200m
+    cpu: 300m
     memory: 512Mi
   requests:
-    cpu: 50m
+    cpu: 125m
     memory: 128Mi
