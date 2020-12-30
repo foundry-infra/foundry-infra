@@ -13,6 +13,6 @@ resource "helm_release" "metrics_server" {
   namespace  = var.platform_provider.k8s_namespace
 
   values = [
-    templatefile("${path.module}/templates/values.tmpl", {})
+    templatefile(var.values_yaml_path, {})
   ]
 }
